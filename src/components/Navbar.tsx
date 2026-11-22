@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { AGENCY_DETAILS } from '../data/travelData';
 import { InstagramIcon } from './InstagramIcon';
+import { BrandLogo } from './BrandLogo';
 import { createWhatsAppUrl } from '../utils/whatsapp';
 
 interface NavbarProps {
@@ -127,30 +128,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
       >
         <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Brand Logo & Title with Gold Monogram */}
-          <Link to="/" className="flex items-center gap-3.5 group focus-ring rounded-xl shrink-0">
-            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#dfbe78] via-[#C8A45D] to-[#927335] p-0.5 shadow-md group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-[#102D29] rounded-[10px] flex items-center justify-center">
-                <span className="text-[#C8A45D] font-serif font-black text-xl sm:text-2xl tracking-tighter">NR</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#C8A45D] rounded-full flex items-center justify-center text-[7px] text-[#102D29] font-black">
-                ★
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-base sm:text-lg lg:text-xl text-white tracking-wide uppercase font-serif-title">
-                  NEW ROSHAN
-                </span>
-                <span className="bg-[#C8A45D]/20 text-[#C8A45D] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#C8A45D]/40 uppercase tracking-wider">
-                  Kadapa
-                </span>
-              </div>
-              <p className="text-[10px] sm:text-[11px] text-[#C8A45D]/90 font-medium tracking-widest uppercase">
-                TOURS & TRAVELS • UMRAH & ZIYARATH
-              </p>
-            </div>
-          </Link>
+          {/* Restored Authentic Brand Logo & Horizontal Lockup */}
+          <BrandLogo variant="header" />
 
           {/* Modern Desktop Navigation Links — Spanning Full Middle Extent */}
           <div className="hidden lg:flex items-center justify-center flex-1 max-w-6xl mx-2 xl:mx-4 gap-0.5 xl:gap-1.5 2xl:gap-2">
@@ -199,7 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <button
               type="button"
               onClick={() => onOpenBooking()}
-              className="sm:hidden bg-[#C8A45D] text-[#102D29] text-xs font-black px-3.5 py-1.5 rounded-full focus-ring"
+              className="hidden min-[420px]:inline-flex sm:hidden bg-[#C8A45D] text-[#102D29] text-xs font-black px-3 py-1.5 rounded-full focus-ring"
             >
               Book
             </button>

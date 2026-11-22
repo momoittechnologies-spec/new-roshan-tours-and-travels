@@ -1,20 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
   <defs>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F59E0B" />
-      <stop offset="50%" stop-color="#D97706" />
-      <stop offset="100%" stop-color="#92400E" />
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#174C40" />
+      <stop offset="100%" stop-color="#0D2421" />
     </linearGradient>
-    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#065F46" />
-      <stop offset="100%" stop-color="#022C22" />
+
+    <linearGradient id="favPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5B2998" />
+      <stop offset="100%" stop-color="#2B0E50" />
+    </linearGradient>
+
+    <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2BD" />
+      <stop offset="35%" stop-color="#E5C171" />
+      <stop offset="80%" stop-color="#C8A45D" />
+      <stop offset="100%" stop-color="#8F6C28" />
+    </linearGradient>
+
+    <linearGradient id="favGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2ECC71" />
+      <stop offset="100%" stop-color="#0E6B34" />
     </linearGradient>
   </defs>
-  <circle cx="50" cy="50" r="48" fill="url(#emeraldGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
-  <!-- Crescent Moon -->
-  <path d="M52 20 A 28 28 0 1 0 76 68 A 24 24 0 1 1 52 20 Z" fill="url(#goldGrad)"/>
-  <!-- Star / Sparkle -->
-  <polygon points="68,28 71,36 79,36 73,41 75,49 68,44 61,49 63,41 57,36 65,36" fill="#FDE68A" />
-  <!-- Letter NR -->
-  <text x="44" y="66" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" text-anchor="middle">NR</text>
+
+  <!-- Circular Outer Disc -->
+  <circle cx="64" cy="64" r="62" fill="url(#favBg)" stroke="url(#favGold)" stroke-width="3" />
+
+  <!-- Crescent Arc -->
+  <path d="M 64,12 C 96,12 116,36 116,64 C 116,92 94,114 64,114 C 47,114 32,106 22,94 C 17,88 15,80 14,73 C 18,74 27,79 37,81 C 50,84 62,82 72,76 C 86,67 92,51 87,35 C 84,27 78,22 69,18 C 65,17 63,14 64,12 Z" 
+        fill="url(#favPurple)" 
+        stroke="url(#favGold)" 
+        stroke-width="1.5" />
+
+  <!-- Airplane at Top Right -->
+  <path d="M 88,20 L 96,17 L 100,20 L 96,22 L 88,23 L 85,27 L 83,26 L 85,23 L 80,23 L 78,25 L 77,25 L 78,22 L 77,20 L 78,20 L 80,22 L 85,22 L 83,18 L 85,18 Z" 
+        fill="url(#favGold)" />
+
+  <!-- Prophet's Green Dome -->
+  <g transform="translate(42, 60)">
+    <rect x="5" y="16" width="20" height="12" fill="#174C40" stroke="url(#favGold)" stroke-width="0.8" rx="1" />
+    <path d="M 3,16 C 3,6 12,0 15,-2 C 18,0 27,6 27,16 Z" fill="url(#favGreen)" stroke="url(#favGold)" stroke-width="1" />
+    <circle cx="15" cy="-4" r="1.5" fill="url(#favGold)" />
+  </g>
+
+  <!-- Holy Kaaba -->
+  <g transform="translate(24, 70)">
+    <polygon points="2,10 12,6 22,10 22,24 12,28 2,24" fill="#151518" stroke="url(#favGold)" stroke-width="0.8" />
+    <polygon points="2,14 12,18 22,14 22,16 12,20 2,16" fill="url(#favGold)" />
+  </g>
+
+  <!-- Stylized NR Monogram in High Contrast Gold -->
+  <g id="fav-nr">
+    <!-- N Left Stem -->
+    <path d="M 30,38 L 40,34 L 40,82 L 30,84 Z" fill="url(#favGold)" stroke="#240D42" stroke-width="1" />
+    <!-- N Diagonal -->
+    <path d="M 39,36 L 62,78 L 62,85 L 52,86 L 38,54 Z" fill="url(#favGold)" stroke="#240D42" stroke-width="1" />
+    <!-- N Right Stem / R Stem -->
+    <path d="M 60,30 L 70,27 L 70,86 L 60,88 Z" fill="url(#favGold)" stroke="#240D42" stroke-width="1" />
+    <!-- R Loop -->
+    <path d="M 70,27 C 84,24 95,31 95,43 C 95,54 85,61 70,62 L 70,51 C 78,50 84,47 84,43 C 84,38 78,35 70,36 Z" fill="url(#favGold)" stroke="#240D42" stroke-width="1" />
+    <!-- R Leg -->
+    <path d="M 69,57 L 80,56 L 95,90 L 83,91 Z" fill="url(#favGold)" stroke="#240D42" stroke-width="1" />
+  </g>
 </svg>

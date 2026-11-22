@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 180" width="100%" height="100%">
+  <defs>
+    <!-- Royal Purple Gradient for Crescent & Banner -->
+    <linearGradient id="hPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#55258E" />
+      <stop offset="45%" stop-color="#3B1768" />
+      <stop offset="100%" stop-color="#240D42" />
+    </linearGradient>
+
+    <!-- Metallic Luxury Gold Gradient -->
+    <linearGradient id="hGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF0B9" />
+      <stop offset="25%" stop-color="#E5C171" />
+      <stop offset="60%" stop-color="#C8A45D" />
+      <stop offset="90%" stop-color="#9E7934" />
+      <stop offset="100%" stop-color="#7A5A1E" />
+    </linearGradient>
+
+    <!-- Prophet's Green Dome Gradient -->
+    <linearGradient id="hGreenDome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2ECC71" />
+      <stop offset="50%" stop-color="#16A050" />
+      <stop offset="100%" stop-color="#0E6B34" />
+    </linearGradient>
+
+    <!-- Holy Kaaba Gradient -->
+    <linearGradient id="hKaabaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D2D30" />
+      <stop offset="50%" stop-color="#1C1C1E" />
+      <stop offset="100%" stop-color="#111113" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left: The Restored Authentic Emblem (Scaled & Centered vertically) -->
+  <g id="logo-emblem" transform="translate(15, 10) scale(0.28)">
+    <!-- Crescent Arc -->
+    <path d="M 255,25 C 385,25 465,120 465,235 C 465,355 375,445 250,445 C 180,445 115,415 75,365 C 55,340 45,310 40,280 C 37,260 42,245 55,250 C 70,255 105,275 145,285 C 195,295 245,290 285,265 C 340,230 365,165 345,100 C 335,70 310,48 275,35 C 260,30 252,22 255,25 Z" 
+          fill="url(#hPurpleGrad)" 
+          stroke="url(#hGoldGrad)" 
+          stroke-width="5" />
+
+    <!-- Airplane -->
+    <g transform="translate(340, 45) rotate(-22)">
+      <path d="M -55,10 Q -25,8 0,5" stroke="url(#hGoldGrad)" stroke-width="4" opacity="0.8" />
+      <path d="M 0,5 L 32,-3 C 38,-4 42,-2 45,1 C 46,3 44,5 40,7 L 0,13 L -12,22 L -16,21 L -9,12 L -30,12 L -38,18 L -42,17 L -36,10 L -42,3 L -38,2 L -30,8 L -9,8 L -16,-1 L -12,-2 Z" 
+            fill="url(#hGoldGrad)" stroke="#55258E" stroke-width="2" />
+    </g>
+
+    <!-- Kaaba & Dome -->
+    <g transform="translate(145, 230)">
+      <!-- Kaaba -->
+      <g transform="translate(0, 35)">
+        <polygon points="10,40 52,28 85,42 85,95 48,110 10,95" fill="url(#hKaabaGrad)" stroke="url(#hGoldGrad)" stroke-width="2" />
+        <polygon points="10,40 48,52 48,110 10,95" fill="#151518" />
+        <polygon points="48,52 85,42 85,95 48,110" fill="#222226" />
+        <polygon points="10,53 48,65 48,72 10,60" fill="url(#hGoldGrad)" />
+        <polygon points="48,65 85,55 85,62 48,72" fill="url(#hGoldGrad)" />
+        <rect x="55" y="65" width="10" height="20" fill="url(#hGoldGrad)" />
+      </g>
+      <!-- Green Dome -->
+      <g transform="translate(75, 10)">
+        <rect x="18" y="55" width="54" height="28" fill="#174C40" stroke="url(#hGoldGrad)" stroke-width="2" rx="2" />
+        <path d="M 12,55 C 12,22 35,5 45,0 C 55,5 78,22 78,55 Z" fill="url(#hGreenDome)" stroke="url(#hGoldGrad)" stroke-width="3" />
+        <path d="M 45,-12 L 45,0 M 43,-10 C 47,-10 49,-7 47,-4 C 45,-6 43,-6 43,-10 Z" stroke="url(#hGoldGrad)" stroke-width="3" fill="url(#hGoldGrad)" />
+      </g>
+    </g>
+
+    <!-- NR Monogram -->
+    <g>
+      <path d="M 115,130 L 155,115 L 155,300 L 115,310 Z" fill="url(#hGoldGrad)" stroke="#4D2082" stroke-width="3" />
+      <path d="M 152,125 L 245,285 L 245,315 L 205,320 L 150,195 Z" fill="url(#hGoldGrad)" stroke="#4D2082" stroke-width="3" />
+      <path d="M 235,105 L 275,95 L 275,320 L 235,325 Z" fill="url(#hGoldGrad)" stroke="#4D2082" stroke-width="3" />
+      <path d="M 275,95 C 330,85 375,110 375,160 C 375,205 335,230 275,235 L 275,190 C 305,188 328,175 328,158 C 328,140 305,130 275,135 Z" fill="url(#hGoldGrad)" stroke="#4D2082" stroke-width="3" />
+      <path d="M 270,215 L 315,210 L 375,340 L 325,345 Z" fill="url(#hGoldGrad)" stroke="#4D2082" stroke-width="3" />
+    </g>
+
+    <!-- Bottom Ribbon -->
+    <g transform="translate(0, 395)">
+      <path d="M 70,55 C 130,42 210,35 250,35 C 290,35 370,42 430,55 L 420,105 C 365,92 295,85 250,85 C 205,85 135,92 80,105 Z" 
+            fill="url(#hPurpleGrad)" stroke="url(#hGoldGrad)" stroke-width="5" />
+      <text x="250" y="74" font-family="'Playfair Display', Georgia, serif" font-size="25" font-weight="900" letter-spacing="3" text-anchor="middle" fill="#FBF0B9">
+        UMRAH &amp; ZIYARATH
+      </text>
+    </g>
+  </g>
+
+  <!-- Right: Company Typography & Subtitle Lockup -->
+  <g id="typography" transform="translate(180, 42)">
+    <!-- Primary Company Name: NEW ROSHAN TOURS & TRAVELS -->
+    <text x="0" y="44" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="38" 
+          font-weight="900" 
+          letter-spacing="1.5" 
+          fill="#F8F5ED">
+      NEW ROSHAN <tspan fill="url(#hGoldGrad)">TOURS &amp; TRAVELS</tspan>
+    </text>
+
+    <!-- Subtitle: UMRAH & ZIYARATH INDIA PVT. LTD. -->
+    <text x="2" y="80" 
+          font-family="'Plus Jakarta Sans', system-ui, sans-serif" 
+          font-size="16" 
+          font-weight="800" 
+          letter-spacing="4.5" 
+          fill="url(#hGoldGrad)">
+      UMRAH &amp; ZIYARATH INDIA PVT. LTD.
+    </text>
+
+    <!-- Fine Baseline: KADAPA, ANDHRA PRADESH -->
+    <g transform="translate(2, 102)">
+      <line x1="0" y1="0" x2="60" y2="0" stroke="#C8A45D" stroke-width="1.5" opacity="0.6" />
+      <text x="75" y="4" 
+            font-family="'Plus Jakarta Sans', system-ui, sans-serif" 
+            font-size="11" 
+            font-weight="700" 
+            letter-spacing="2" 
+            fill="#A8BDB5">
+        KADAPA • ANDHRA PRADESH • ESTD. 2026
+      </text>
+    </g>
+  </g>
+</svg>

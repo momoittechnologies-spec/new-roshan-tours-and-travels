@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { AGENCY_DETAILS } from '../data/travelData';
 import { InstagramIcon } from './InstagramIcon';
+import { BrandLogo } from './BrandLogo';
 import type { PolicyType } from './PolicyModal';
 import { createWhatsAppUrl } from '../utils/whatsapp';
 
@@ -147,21 +148,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenBooking }) =
           
           {/* Column 1: Brand, Sacred Motto & Socials (Spans 4 columns on desktop) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#C8A45D] to-[#927335] p-0.5 shadow-md shrink-0">
-                <div className="w-full h-full bg-[#102D29] rounded-[10px] flex items-center justify-center font-serif font-black text-[#C8A45D] text-xl">
-                  NR
-                </div>
-              </div>
-              <div>
-                <span className="font-extrabold text-white text-base sm:text-lg tracking-wide uppercase font-serif-title block leading-tight">
-                  NEW ROSHAN TOURS & TRAVELS
-                </span>
-                <span className="text-[10px] text-[#C8A45D] tracking-wider uppercase font-bold block">
-                  UMRAH & ZIYARATH INDIA PVT. LTD.
-                </span>
-              </div>
-            </div>
+            {/* Restored Authentic Brand Logo in Footer */}
+            <BrandLogo variant="footer" />
 
             <div className="space-y-1">
               <p className="font-arabic text-[#C8A45D] text-lg font-bold leading-normal">

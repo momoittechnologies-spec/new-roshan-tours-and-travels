@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 560" width="100%" height="100%">
+  <defs>
+    <!-- Royal Purple Gradient for Crescent & Banner -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#55258E" />
+      <stop offset="45%" stop-color="#3B1768" />
+      <stop offset="100%" stop-color="#240D42" />
+    </linearGradient>
+
+    <!-- Metallic Luxury Gold Gradient for NR & Accents -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF0B9" />
+      <stop offset="25%" stop-color="#E5C171" />
+      <stop offset="60%" stop-color="#C8A45D" />
+      <stop offset="90%" stop-color="#9E7934" />
+      <stop offset="100%" stop-color="#7A5A1E" />
+    </linearGradient>
+
+    <!-- Secondary Soft Gold Gradient -->
+    <linearGradient id="softGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F7E6A9" />
+      <stop offset="50%" stop-color="#C8A45D" />
+      <stop offset="100%" stop-color="#8E6A26" />
+    </linearGradient>
+
+    <!-- Prophet's Green Dome Gradient -->
+    <linearGradient id="greenDomeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2ECC71" />
+      <stop offset="35%" stop-color="#16A050" />
+      <stop offset="80%" stop-color="#0E6B34" />
+      <stop offset="100%" stop-color="#094A23" />
+    </linearGradient>
+
+    <!-- Holy Kaaba Gradient -->
+    <linearGradient id="kaabaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D2D30" />
+      <stop offset="50%" stop-color="#1C1C1E" />
+      <stop offset="100%" stop-color="#111113" />
+    </linearGradient>
+
+    <!-- Subtle Glow Filter -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Group 1: The Outer Royal Purple Crescent Moon -->
+  <g id="crescent-arc">
+    <!-- Outer Crescent Path -->
+    <path d="M 255,25 C 385,25 465,120 465,235 C 465,355 375,445 250,445 C 180,445 115,415 75,365 C 55,340 45,310 40,280 C 37,260 42,245 55,250 C 70,255 105,275 145,285 C 195,295 245,290 285,265 C 340,230 365,165 345,100 C 335,70 310,48 275,35 C 260,30 252,22 255,25 Z" 
+          fill="url(#purpleGrad)" 
+          stroke="url(#goldGrad)" 
+          stroke-width="3" 
+          stroke-linejoin="round" />
+
+    <!-- Crescent Inner Shimmer Trim -->
+    <path d="M 240,40 C 330,55 385,125 385,215 C 385,310 310,385 215,400 C 160,410 105,385 75,350" 
+          fill="none" 
+          stroke="url(#goldGrad)" 
+          stroke-width="1.5" 
+          opacity="0.6" />
+  </g>
+
+  <!-- Group 2: The Flying Airplane at the Top Apex -->
+  <g id="airplane" transform="translate(340, 45) rotate(-22)">
+    <!-- Contrail Jet Stream -->
+    <path d="M -55,10 Q -25,8 0,5" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+    <!-- Jet Fuselage -->
+    <path d="M 0,5 L 32,-3 C 38,-4 42,-2 45,1 C 46,3 44,5 40,7 L 0,13 L -12,22 L -16,21 L -9,12 L -30,12 L -38,18 L -42,17 L -36,10 L -42,3 L -38,2 L -30,8 L -9,8 L -16,-1 L -12,-2 Z" 
+          fill="url(#goldGrad)" 
+          stroke="#55258E" 
+          stroke-width="1" />
+  </g>
+
+  <!-- Group 3: The Sacred Sanctuaries (Kaaba & Madinah Dome) -->
+  <g id="sanctuaries" transform="translate(145, 230)">
+    <!-- Holy Kaaba (Left Side of Center) -->
+    <g id="kaaba" transform="translate(0, 35)">
+      <!-- Kaaba Main Structure -->
+      <polygon points="10,40 52,28 85,42 85,95 48,110 10,95" fill="url(#kaabaGrad)" stroke="url(#goldGrad)" stroke-width="1.5" />
+      <!-- Left Wall Shading -->
+      <polygon points="10,40 48,52 48,110 10,95" fill="#151518" />
+      <!-- Right Wall Shading -->
+      <polygon points="48,52 85,42 85,95 48,110" fill="#222226" />
+      <!-- Golden Kiswa Belt (Hizam) on Left Wall -->
+      <polygon points="10,53 48,65 48,72 10,60" fill="url(#goldGrad)" />
+      <!-- Golden Kiswa Belt on Right Wall -->
+      <polygon points="48,65 85,55 85,62 48,72" fill="url(#goldGrad)" />
+      <!-- Golden Door (Bab al-Kaaba) -->
+      <rect x="55" y="65" width="10" height="20" fill="url(#goldGrad)" stroke="#7A5A1E" stroke-width="0.8" rx="1" />
+    </g>
+
+    <!-- Prophet's Green Dome (Madinah Gumbad-e-Khizra) -->
+    <g id="green-dome" transform="translate(75, 10)">
+      <!-- Cylindrical Drum Base -->
+      <rect x="18" y="55" width="54" height="28" fill="#174C40" stroke="url(#goldGrad)" stroke-width="1.2" rx="2" />
+      <!-- Arched Windows on Drum -->
+      <path d="M 26,68 A 3,4 0 0 1 32,68 L 32,77 L 26,77 Z 
+               M 42,68 A 3,4 0 0 1 48,68 L 48,77 L 42,77 Z 
+               M 58,68 A 3,4 0 0 1 64,68 L 64,77 L 58,77 Z" fill="url(#goldGrad)" />
+      <!-- Hemispherical Green Dome -->
+      <path d="M 12,55 C 12,22 35,5 45,0 C 55,5 78,22 78,55 Z" fill="url(#greenDomeGrad)" stroke="url(#goldGrad)" stroke-width="1.5" />
+      <!-- Golden Crescent Finial (Hilal) -->
+      <path d="M 45,-12 L 45,0 M 43,-10 C 47,-10 49,-7 47,-4 C 45,-6 43,-6 43,-10 Z" stroke="url(#goldGrad)" stroke-width="2" fill="url(#goldGrad)" />
+    </g>
+  </g>
+
+  <!-- Group 4: The Bold Intertwined Metallic "NR" Monogram -->
+  <g id="nr-monogram" filter="url(#goldGlow)">
+    <!-- Letter 'N' -->
+    <!-- Left Vertical Stem of N -->
+    <path d="M 115,130 L 155,115 L 155,300 L 115,310 Z" 
+          fill="url(#goldGrad)" 
+          stroke="#4D2082" 
+          stroke-width="2" />
+    <!-- 3D Bevel Highlight on N Left Stem -->
+    <path d="M 115,130 L 132,123 L 132,305 L 115,310 Z" 
+          fill="#FFF3C4" 
+          opacity="0.4" />
+
+    <!-- Diagonal Crossbar of N -->
+    <path d="M 152,125 L 245,285 L 245,315 L 205,320 L 150,195 Z" 
+          fill="url(#goldGrad)" 
+          stroke="#4D2082" 
+          stroke-width="2" />
+
+    <!-- Right Stem of N / Merged into R's Upright Stem -->
+    <path d="M 235,105 L 275,95 L 275,320 L 235,325 Z" 
+          fill="url(#goldGrad)" 
+          stroke="#4D2082" 
+          stroke-width="2" />
+
+    <!-- Letter 'R' Upper Loop -->
+    <path d="M 275,95 C 330,85 375,110 375,160 C 375,205 335,230 275,235 L 275,190 C 305,188 328,175 328,158 C 328,140 305,130 275,135 Z" 
+          fill="url(#goldGrad)" 
+          stroke="#4D2082" 
+          stroke-width="2" />
+
+    <!-- Letter 'R' Dynamic Sweeping Leg -->
+    <path d="M 270,215 L 315,210 L 375,340 L 325,345 Z" 
+          fill="url(#goldGrad)" 
+          stroke="#4D2082" 
+          stroke-width="2" />
+  </g>
+
+  <!-- Group 5: Ornate Bottom Banner "UMRAH & ZIYARATH" -->
+  <g id="bottom-banner" transform="translate(0, 395)">
+    <!-- Ribbon Shadow/Under-Fold Left -->
+    <polygon points="50,65 85,45 85,85" fill="#1E0A38" />
+    <!-- Ribbon Shadow/Under-Fold Right -->
+    <polygon points="450,65 415,45 415,85" fill="#1E0A38" />
+
+    <!-- Main Curved Ribbon Plate -->
+    <path d="M 70,55 C 130,42 210,35 250,35 C 290,35 370,42 430,55 L 420,105 C 365,92 295,85 250,85 C 205,85 135,92 80,105 Z" 
+          fill="url(#purpleGrad)" 
+          stroke="url(#goldGrad)" 
+          stroke-width="3" />
+
+    <!-- Inner Ribbon Trim -->
+    <path d="M 85,62 C 140,50 215,43 250,43 C 285,43 360,50 415,62" 
+          fill="none" 
+          stroke="url(#goldGrad)" 
+          stroke-width="1" 
+          opacity="0.7" />
+
+    <!-- Ribbon Gold Star Accents -->
+    <polygon points="98,75 101,69 107,69 102,73 104,79 98,75 92,79 94,73 89,69 95,69" fill="url(#goldGrad)" />
+    <polygon points="402,75 405,69 411,69 406,73 408,79 402,75 396,79 398,73 393,69 399,69" fill="url(#goldGrad)" />
+
+    <!-- Primary Title: UMRAH & ZIYARATH -->
+    <text x="250" y="73" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="24" 
+          font-weight="900" 
+          letter-spacing="3" 
+          text-anchor="middle" 
+          fill="url(#softGold)" 
+          stroke="#3B1768" 
+          stroke-width="0.8">
+      UMRAH &amp; ZIYARATH
+    </text>
+
+    <!-- Subtitle: SPIRITUAL JOURNEY · DIVINE BLESSINGS -->
+    <text x="250" y="125" 
+          font-family="'Plus Jakarta Sans', system-ui, sans-serif" 
+          font-size="11" 
+          font-weight="800" 
+          letter-spacing="2" 
+          text-anchor="middle" 
+          fill="#DFBE78">
+      SPIRITUAL JOURNEY • DIVINE BLESSINGS
+    </text>
+  </g>
+</svg>
