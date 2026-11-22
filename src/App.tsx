@@ -103,7 +103,10 @@ export function App() {
       </main>
 
       {/* 16. Footer with Policy Links & MOMO IT TECHNOLOGIES Credits */}
-      <Footer onOpenPolicy={(type) => setActivePolicy(type)} />
+      <Footer 
+        onOpenPolicy={(type) => setActivePolicy(type)} 
+        onOpenBooking={(note) => handleOpenBooking(note)}
+      />
 
       {/* Interactive Modals */}
       <BookingModal 
