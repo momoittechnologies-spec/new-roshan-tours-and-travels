@@ -72,6 +72,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
               <Sparkles className="w-3.5 h-3.5 text-[#C8A45D]" />
               Official Registered Entity · Inaugurated 3rd July 2026
             </div>
+
+            <div className="pt-1">
+              <img 
+                src="/branding/new-roshan-logo-official.png" 
+                alt="New Roshan Tours & Travels Official Brand Logo" 
+                className="h-14 sm:h-18 w-auto object-contain drop-shadow-md"
+              />
+            </div>
             
             <h1 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
               A Sacred Service Built on <span className="text-[#C8A45D]">Truth, Comfort & Sincerity</span>

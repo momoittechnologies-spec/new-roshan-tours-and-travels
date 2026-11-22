@@ -110,6 +110,14 @@ export const ContactPage: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5 text-[#C8A45D]" />
               Centrally Located in Ganagapeta, Kadapa
             </div>
+
+            <div className="pt-1">
+              <img 
+                src="/branding/new-roshan-logo-official.png" 
+                alt="New Roshan Tours & Travels Official Brand Logo" 
+                className="h-14 sm:h-18 w-auto object-contain drop-shadow-md"
+              />
+            </div>
             
             <h1 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Get in Touch with Our <span className="text-[#C8A45D]">Kadapa Head Office</span>

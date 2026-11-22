@@ -14,54 +14,49 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   to = '/',
   onClick
 }) => {
-  // 1. Standalone Emblem Variant
+  // 1. Standalone Official Emblem Only (Cropped Crescent, NR, Dome & Kaaba)
   if (variant === 'emblem-only') {
     return (
       <div className={`relative inline-flex items-center justify-center shrink-0 ${className}`}>
-        <img
-          src="/branding/new-roshan-emblem.svg"
-          alt="New Roshan Tours & Travels Authentic Emblem"
-          className="h-12 w-auto object-contain drop-shadow-md"
-          loading="eager"
-          decoding="async"
-        />
+        <picture>
+          <source srcSet="/branding/new-roshan-emblem-official.webp" type="image/webp" />
+          <img
+            src="/branding/new-roshan-emblem-official.png"
+            alt="New Roshan Tours & Travels Authentic Emblem"
+            className="h-12 sm:h-14 w-auto object-contain drop-shadow-md"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
       </div>
     );
   }
 
-  // 2. Footer Variant
+  // 2. Footer Official Brand Lockup
   if (variant === 'footer') {
     return (
       <Link
         to={to}
         onClick={onClick}
-        className={`group inline-flex items-center gap-3.5 sm:gap-4 focus-ring rounded-2xl shrink-0 transition-transform ${className}`}
+        className={`group inline-flex flex-col items-start gap-2 focus-ring rounded-2xl shrink-0 transition-transform ${className}`}
         aria-label="New Roshan Tours & Travels Home"
       >
         <div className="relative shrink-0">
-          <img
-            src="/branding/new-roshan-emblem.svg"
-            alt="New Roshan Tours & Travels Official Emblem"
-            className="h-14 sm:h-16 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source srcSet="/branding/new-roshan-logo-official.webp" type="image/webp" />
+            <img
+              src="/branding/new-roshan-logo-official.png"
+              alt="New Roshan Tours & Travels Umrah & Ziyarath India Pvt. Ltd. Official Logo"
+              className="h-14 sm:h-16 lg:h-18 w-auto object-contain group-hover:scale-[1.02] transition-transform drop-shadow-lg"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
 
-        <div className="space-y-1">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-extrabold text-lg sm:text-xl lg:text-2xl text-[#F8F5ED] tracking-wide uppercase font-serif-title block leading-tight">
-              NEW ROSHAN <span className="text-[#C8A45D]">TOURS &amp; TRAVELS</span>
-            </span>
-          </div>
-
-          <span className="text-[10px] sm:text-xs text-[#C8A45D] tracking-[0.2em] uppercase font-bold block leading-none">
-            UMRAH &amp; ZIYARATH INDIA PVT. LTD.
-          </span>
-
-          <span className="text-[10px] text-stone-400 tracking-wider block font-medium">
-            Kadapa, Andhra Pradesh • Inaugurated 3rd July 2026
-          </span>
+        <div className="text-[11px] text-[#C8A45D] font-bold tracking-wider uppercase pl-0.5">
+          <span>Kadapa, Andhra Pradesh</span>
+          <span className="text-stone-400 font-normal ml-2">● Inaugurated 3rd July 2026</span>
         </div>
       </Link>
     );
@@ -73,65 +68,45 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <Link
         to={to}
         onClick={onClick}
-        className={`group inline-flex items-center gap-2 focus-ring rounded-xl shrink-0 ${className}`}
+        className={`group inline-flex items-center focus-ring rounded-xl shrink-0 ${className}`}
         aria-label="New Roshan Tours & Travels Home"
       >
-        <img
-          src="/branding/new-roshan-emblem.svg"
-          alt="New Roshan Tours & Travels Emblem"
-          className="h-9 sm:h-10 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform drop-shadow-sm"
-          loading="eager"
-          decoding="async"
-        />
-        <div className="leading-tight">
-          <span className="font-extrabold text-sm text-[#F8F5ED] tracking-wide uppercase font-serif-title block">
-            NEW ROSHAN
-          </span>
-          <span className="text-[8.5px] text-[#C8A45D] tracking-wider uppercase font-bold block">
-            UMRAH &amp; ZIYARATH
-          </span>
-        </div>
+        <picture>
+          <source srcSet="/branding/new-roshan-logo-official.webp" type="image/webp" />
+          <img
+            src="/branding/new-roshan-logo-official.png"
+            alt="New Roshan Tours & Travels Logo"
+            className="h-9 sm:h-10 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-sm"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
+        <span className="sr-only">New Roshan Tours &amp; Travels</span>
       </Link>
     );
   }
 
-  // 4. Default Header Variant (Desktop, Tablet & Highly Responsive Mobile Lockup)
+  // 4. Default Header Variant (Desktop & Responsive Mobile Header)
   return (
     <Link
       to={to}
       onClick={onClick}
-      className={`group inline-flex items-center gap-2 sm:gap-3 lg:gap-3.5 focus-ring rounded-xl shrink-0 transition-transform ${className}`}
+      className={`group inline-flex items-center gap-2 focus-ring rounded-xl shrink-0 transition-transform ${className}`}
       aria-label="New Roshan Tours & Travels Home"
     >
-      {/* Restored Authentic Emblem */}
-      <div className="relative shrink-0">
+      <picture className="flex items-center shrink-0">
+        <source srcSet="/branding/new-roshan-logo-official.webp" type="image/webp" />
         <img
-          src="/branding/new-roshan-emblem.svg"
-          alt="New Roshan Tours & Travels Official Logo Emblem"
-          className="h-10 sm:h-12 lg:h-13 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-md"
+          src="/branding/new-roshan-logo-official.png"
+          alt="New Roshan Tours & Travels - Umrah & Ziyarath India Pvt. Ltd."
+          className="h-10 sm:h-12 lg:h-13 xl:h-14 w-auto object-contain group-hover:scale-[1.02] transition-transform drop-shadow-md"
           loading="eager"
           decoding="async"
         />
-      </div>
-
-      {/* Professional Company Name & Subtitle Typography Lockup */}
-      <div className="flex flex-col justify-center min-w-0">
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          <span className="font-extrabold text-[15px] sm:text-lg lg:text-[19px] text-[#F8F5ED] tracking-wide uppercase font-serif-title leading-tight whitespace-nowrap">
-            NEW ROSHAN
-          </span>
-          <span className="hidden sm:inline font-bold text-xs lg:text-[13px] text-stone-300 tracking-wider uppercase whitespace-nowrap">
-            TOURS &amp; TRAVELS
-          </span>
-          <span className="hidden min-[480px]:inline-block bg-[#C8A45D]/20 text-[#C8A45D] text-[9px] lg:text-[10px] font-bold px-1.5 py-0.5 rounded-full border border-[#C8A45D]/40 uppercase tracking-wider">
-            Kadapa
-          </span>
-        </div>
-
-        <p className="text-[8.5px] sm:text-[10px] lg:text-[11px] text-[#C8A45D] font-bold tracking-[0.14em] uppercase leading-tight pt-0.5 truncate max-w-[160px] min-[360px]:max-w-none">
-          UMRAH &amp; ZIYARATH INDIA PVT. LTD.
-        </p>
-      </div>
+      </picture>
+      <span className="sr-only">
+        NEW ROSHAN TOURS &amp; TRAVELS - UMRAH &amp; ZIYARATH INDIA PVT. LTD. KADAPA
+      </span>
     </Link>
   );
 };

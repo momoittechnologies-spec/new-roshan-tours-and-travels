@@ -53,6 +53,8 @@ export const AGENCY_DETAILS = {
   googleRating: 5.0,
   googleReviewCount: "5.0 Rating on Google (Verified Reviews)",
   googleMapsUrl: "https://maps.google.com/?q=NEW+ROSHAN+TOURS+%26+TRAVELS+UMRAH+%26+ZIYARAT+INDIA+Pvt+Ltd+Kadapa",
+  logoUrl: "/branding/new-roshan-logo-official.png",
+  emblemUrl: "/branding/new-roshan-emblem-official.png",
   developer: {
     name: "MOMO IT TECHNOLOGIES",
     tagline: "Empowering Local Businesses with World-Class Digital Solutions",
