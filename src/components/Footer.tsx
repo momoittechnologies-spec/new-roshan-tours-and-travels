@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Heart, 
   MapPin, 
@@ -85,13 +86,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenBooking }) =
                   <span>Book Umrah</span>
                 </button>
               ) : (
-                <a
-                  href="#packages"
+                <Link
+                  to="/packages"
                   className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#C8A45D] via-[#dfbe78] to-[#C8A45D] hover:from-[#dfbe78] hover:to-[#C8A45D] text-[#102D29] text-xs sm:text-sm font-extrabold px-5 py-3 rounded-xl shadow-lg shadow-[#C8A45D]/20 transition-all hover:scale-[1.02] active:scale-95 focus-ring"
                 >
                   <Calendar className="w-4 h-4 text-[#102D29]" />
                   <span>View Packages</span>
-                </a>
+                </Link>
               )}
             </div>
 
@@ -235,40 +236,40 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenBooking }) =
             </h4>
             <ul className="space-y-2 text-xs text-stone-300">
               <li>
-                <a href="#packages" className="hover:text-[#C8A45D] transition-colors flex items-center justify-between group">
+                <Link to="/packages" className="hover:text-[#C8A45D] transition-colors flex items-center justify-between group">
                   <span>Deluxe 14-Day Batch</span>
                   <span className="text-[10px] text-[#C8A45D] font-bold">₹1.15L</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#packages" className="hover:text-[#C8A45D] transition-colors flex items-center justify-between group">
+                <Link to="/packages" className="hover:text-[#C8A45D] transition-colors flex items-center justify-between group">
                   <span>Classic Group Batch</span>
                   <span className="text-[10px] text-stone-400">₹1.05L</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#packages" className="hover:text-[#C8A45D] transition-colors flex items-center justify-between group">
+                <Link to="/packages" className="hover:text-[#C8A45D] transition-colors flex items-center justify-between group">
                   <span>Executive Comfort</span>
                   <span className="text-[10px] text-stone-400">₹1.35L</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#packages" className="hover:text-[#C8A45D] transition-colors flex items-center justify-between group">
+                <Link to="/packages" className="hover:text-[#C8A45D] transition-colors flex items-center justify-between group">
                   <span>Ramadan Mubarak 2027</span>
                   <span className="text-[10px] text-stone-400">₹1.65L</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#schedules" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1 pt-1">
+                <Link to="/schedules" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1 pt-1">
                   <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
                   <span>Saudia Group Departures</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
+                <Link to="/#calculator" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
                   <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
                   <span>Fare Calculator</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -281,40 +282,46 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenBooking }) =
             </h4>
             <ul className="space-y-2 text-xs text-stone-300">
               <li>
-                <a href="#hotels" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
+                <Link to="/about" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1 font-semibold text-white">
+                  <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
+                  <span>About Our Agency</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1 font-semibold text-white">
+                  <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
+                  <span>Contact Kadapa Office</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/#hotels" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
                   <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
                   <span>5-Star Hotels (150m & 400m)</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#pilgrim-kit" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
+                <Link to="/#pilgrim-kit" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
                   <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
                   <span>8-Piece Luggage & Ihram Kit</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#journey-guide" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
+                <Link to="/#journey-guide" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
                   <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
                   <span>7-Step Umrah Guide</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
-                  <span>Hyderabadi Buffet Dining</span>
-                </a>
-              </li>
-              <li>
-                <a href="#lucky-draw" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
+                <Link to="/#lucky-draw" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
                   <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
                   <span>₹999 Lucky Draw Program</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#gallery" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
+                <Link to="/#gallery" className="hover:text-[#C8A45D] transition-colors flex items-center gap-1">
                   <ChevronRight className="w-3 h-3 text-[#C8A45D]" />
                   <span>Photo Proof Gallery</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

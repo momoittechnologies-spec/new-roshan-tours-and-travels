@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Phone, 
   MapPin, 
@@ -21,6 +22,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,16 +43,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen]);
 
+  // Close mobile drawer on route change during render
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
+  if (prevPathname !== location.pathname) {
+    setPrevPathname(location.pathname);
+    setMobileMenuOpen(false);
+  }
+
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Umrah Packages', href: '#packages' },
-    { name: 'Departures', href: '#schedules' },
-    { name: 'Why Us', href: '#why-us' },
-    { name: '5-Star Hotels', href: '#hotels' },
-    { name: 'Fare Estimator', href: '#calculator' },
-    { name: 'Journey Steps', href: '#journey-guide' },
-    { name: 'Photo Gallery', href: '#gallery' },
-    { name: 'Kadapa Office', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Umrah Packages', href: '/packages' },
+    { name: 'Departures', href: '/schedules' },
+    { name: '5-Star Hotels', href: '/#hotels' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Fare Estimator', href: '/#calculator' },
+    { name: 'Photo Gallery', href: '/#gallery' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   return (
@@ -58,86 +66,69 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
       
       {/* Top Utility Announcement Bar — Fluid Full-Width */}
       <div className="w-full bg-[#0d2421] text-stone-300 text-xs py-2 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 border-b border-[#C8A45D]/20 backdrop-blur-md">
-        <div className="w-full flex flex-wrap justify-between items-center gap-2">
+        <div className="w-full flex items-center justify-between gap-4">
           
-          {/* Left: Kadapa Office & Flight Information */}
-          <div className="flex items-center gap-3 sm:gap-5 flex-wrap">
-            <span className="inline-flex items-center gap-2 font-medium text-[#C8A45D]">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8A45D] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C8A45D]"></span>
-              </span>
-              <MapPin className="w-3.5 h-3.5 text-[#C8A45D]" />
-              <span>Head Office: Rahmatullah Street, Ganagapeta, Kadapa</span>
+          {/* Left: Kadapa Location & Office Status */}
+          <div className="flex items-center gap-3 sm:gap-4 overflow-hidden text-[11px] sm:text-xs">
+            <span className="flex items-center gap-1.5 text-stone-300 shrink-0">
+              <MapPin className="w-3.5 h-3.5 text-[#C8A45D] shrink-0" />
+              <span className="font-semibold text-white">Kadapa Central Office:</span>
+              <span className="hidden md:inline text-stone-300 truncate max-w-xs xl:max-w-md">13/403-1, Rahmatullah St, Ganagapeta</span>
             </span>
 
-            <span className="hidden lg:inline-block text-stone-600">|</span>
-
-            <span className="hidden lg:inline-flex items-center gap-1.5 text-stone-300">
-              <Sparkles className="w-3 h-3 text-[#C8A45D]" />
-              <span>Saudia Airlines Direct HYD - JED Batches Open</span>
-            </span>
-
-            <span className="hidden 2xl:inline-block text-stone-600">|</span>
-
-            <span className="hidden 2xl:inline-flex items-center gap-1.5 text-stone-400">
+            <span className="hidden sm:inline-flex items-center gap-1.5 bg-[#174C40] text-[#C8A45D] px-2.5 py-0.5 rounded-full text-[10px] font-bold border border-[#C8A45D]/30 shrink-0">
               <Clock className="w-3 h-3 text-[#C8A45D]" />
-              <span>Timings: Mon – Sat 9:30 AM – 7:30 PM</span>
+              <span>Open Mon–Sat · 9AM–8PM</span>
             </span>
           </div>
 
-          {/* Right: Phone Directory & Socials */}
-          <div className="flex items-center gap-3 sm:gap-6 ml-auto">
-            <div className="hidden sm:flex items-center gap-3">
-              <span className="text-[11px] text-stone-400 uppercase tracking-wider">Helplines:</span>
-              <a 
-                href={`tel:${AGENCY_DETAILS.phones[0].raw}`} 
-                className="inline-flex items-center gap-1 text-stone-200 hover:text-[#C8A45D] font-bold text-xs transition-colors focus-ring"
-              >
-                <Phone className="w-3 h-3 text-[#C8A45D]" />
-                <span>{AGENCY_DETAILS.phones[0].display}</span>
-              </a>
-              <span className="text-stone-600">•</span>
-              <a 
-                href={`tel:${AGENCY_DETAILS.phones[1].raw}`} 
-                className="inline-flex items-center gap-1 text-stone-200 hover:text-[#C8A45D] font-bold text-xs transition-colors focus-ring"
-              >
-                <span>{AGENCY_DETAILS.phones[1].display}</span>
-              </a>
-            </div>
+          {/* Center Announcement: Direct Saudia Flights Notice */}
+          <div className="hidden lg:flex items-center gap-1.5 text-[#C8A45D] font-bold text-[11px] uppercase tracking-wider shrink-0">
+            <Sparkles className="w-3.5 h-3.5 text-[#C8A45D]" />
+            <span>Saudia Airlines Direct Flights · Hyderabad (HYD) ✈ Jeddah (JED)</span>
+          </div>
 
-            <div className="flex items-center gap-2">
-              <a 
-                href={AGENCY_DETAILS.instagramUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center gap-1.5 bg-[#174C40]/60 hover:bg-[#174C40] text-stone-200 hover:text-[#C8A45D] px-2.5 py-1 rounded-full border border-[#C8A45D]/25 transition-all text-[11px] font-medium focus-ring"
-                title="Follow us on Instagram"
-              >
-                <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
-                <span className="hidden md:inline">@newroshantoursandtravels</span>
-                <span className="md:hidden">Instagram</span>
-              </a>
-            </div>
+          {/* Right: Phone Hotlines & Instagram */}
+          <div className="flex items-center gap-3 text-[11px] sm:text-xs shrink-0">
+            <a 
+              href={`tel:${AGENCY_DETAILS.phones[0].raw}`}
+              className="flex items-center gap-1.5 text-stone-200 hover:text-[#C8A45D] font-bold transition-colors focus-ring"
+              title="Call Primary Helpline"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#C8A45D]" />
+              <span className="tracking-wide">{AGENCY_DETAILS.phones[0].display}</span>
+            </a>
+
+            <span className="text-stone-600 hidden sm:inline">|</span>
+
+            <a
+              href={AGENCY_DETAILS.instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden sm:flex items-center gap-1 text-pink-400 hover:text-pink-300 transition-colors focus-ring"
+              title="Follow on Instagram"
+            >
+              <InstagramIcon className="w-3.5 h-3.5" />
+              <span className="hidden xl:inline text-[10px] font-semibold text-stone-300">{AGENCY_DETAILS.instagramHandle}</span>
+            </a>
           </div>
 
         </div>
       </div>
 
-      {/* Main Navbar — Maximum Extent Fluid Width with Modern Glassmorphism */}
+      {/* Main Navigation Bar — Expanded Edge-to-Edge Fluid Architecture */}
       <nav 
-        role="navigation"
-        aria-label="Main Navigation"
-        className={`w-full transition-all duration-300 ${
+        className={`w-full transition-all duration-300 border-b ${
           isScrolled 
-            ? 'bg-[#102D29]/95 backdrop-blur-xl shadow-xl shadow-black/20 border-b border-[#C8A45D]/25 py-2.5' 
-            : 'bg-[#102D29]/88 backdrop-blur-md border-b border-stone-800/80 py-3.5'
+            ? 'bg-[#102D29]/95 backdrop-blur-xl border-[#C8A45D]/30 shadow-xl py-2.5 sm:py-3' 
+            : 'bg-[#102D29]/90 backdrop-blur-md border-[#C8A45D]/20 py-3.5 sm:py-4'
         }`}
+        aria-label="Main Navigation"
       >
-        <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 flex items-center justify-between gap-4">
+        <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Brand Identity / Logo */}
-          <a href="#home" className="flex items-center gap-3.5 group focus-ring rounded-xl shrink-0">
+          {/* Brand Logo & Title with Gold Monogram */}
+          <Link to="/" className="flex items-center gap-3.5 group focus-ring rounded-xl shrink-0">
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#dfbe78] via-[#C8A45D] to-[#927335] p-0.5 shadow-md group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-[#102D29] rounded-[10px] flex items-center justify-center">
                 <span className="text-[#C8A45D] font-serif font-black text-xl sm:text-2xl tracking-tighter">NR</span>
@@ -159,19 +150,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 TOURS & TRAVELS • UMRAH & ZIYARATH
               </p>
             </div>
-          </a>
+          </Link>
 
           {/* Modern Desktop Navigation Links — Spanning Full Middle Extent */}
           <div className="hidden lg:flex items-center justify-center flex-1 max-w-6xl mx-2 xl:mx-4 gap-0.5 xl:gap-1.5 2xl:gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-[11px] xl:text-[12px] 2xl:text-[13px] font-semibold text-stone-200 hover:text-[#C8A45D] hover:bg-white/5 px-2.5 py-1.5 xl:px-3 xl:py-1.5 2xl:px-3.5 2xl:py-2 rounded-full transition-all tracking-wide whitespace-nowrap focus-ring"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`text-[11px] xl:text-[12px] 2xl:text-[13px] font-semibold px-2.5 py-1.5 xl:px-3 xl:py-1.5 2xl:px-3.5 2xl:py-2 rounded-full transition-all tracking-wide whitespace-nowrap focus-ring ${
+                    isActive 
+                      ? 'text-[#C8A45D] bg-white/10 font-bold border border-[#C8A45D]/30' 
+                      : 'text-stone-200 hover:text-[#C8A45D] hover:bg-white/5'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Modern Right-Side Actions */}
@@ -222,16 +220,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
         {mobileMenuOpen && (
           <div className="lg:hidden w-full bg-[#102D29]/98 border-t border-[#C8A45D]/25 px-5 pt-4 pb-7 space-y-2 backdrop-blur-2xl animate-in slide-in-from-top duration-200 shadow-2xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pb-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-200 hover:bg-[#174C40] hover:text-[#C8A45D] transition-colors focus-ring"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors focus-ring ${
+                      isActive
+                        ? 'bg-[#174C40] text-[#C8A45D] font-bold border border-[#C8A45D]/30'
+                        : 'text-stone-200 hover:bg-[#174C40] hover:text-[#C8A45D]'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="pt-3 border-t border-stone-700/60 grid grid-cols-2 gap-2.5">
@@ -239,7 +244,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 href={createWhatsAppUrl({ intent: 'general' })}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#174C40] text-white text-xs font-bold py-3 px-3 rounded-xl focus-ring"
+                className="inline-flex items-center justify-center gap-1.5 bg-[#174C40] text-white text-xs font-bold py-2.5 px-3 rounded-xl border border-[#C8A45D]/30"
               >
                 <MessageCircle className="w-4 h-4 text-[#C8A45D]" />
                 <span>WhatsApp</span>
@@ -250,15 +255,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#C8A45D] to-[#dfbe78] text-[#102D29] text-xs font-extrabold py-3 px-3 rounded-xl focus-ring shadow-md"
+                className="inline-flex items-center justify-center gap-1.5 bg-[#C8A45D] text-[#102D29] text-xs font-black py-2.5 px-3 rounded-xl"
               >
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4 text-[#102D29]" />
                 <span>Book Umrah</span>
               </button>
             </div>
           </div>
         )}
+
       </nav>
+
     </header>
   );
 };

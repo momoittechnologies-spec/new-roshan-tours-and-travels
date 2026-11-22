@@ -38,54 +38,68 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 
-    <!-- JSON-LD Structured Data: TravelAgency -->
+    <!-- JSON-LD Structured Data: Organization, TravelAgency, WebSite & SiteNavigation -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "TravelAgency",
-      "name": "New Roshan Tours & Travels Umrah & Ziyarath India Pvt Ltd",
-      "alternateName": "New Roshan Tours & Travels Kadapa",
-      "image": "https://new-roshan-tours-and-travels.vercel.app/assets/umrah-schedule.jpg",
-      "@id": "https://new-roshan-tours-and-travels.vercel.app/",
-      "url": "https://new-roshan-tours-and-travels.vercel.app/",
-      "telephone": "+91-9059057239",
-      "priceRange": "₹₹",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "13/403-1, Rahmatullah Street, YV Street, Ganagapeta",
-        "addressLocality": "Kadapa",
-        "addressRegion": "Andhra Pradesh",
-        "postalCode": "516001",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 14.4673,
-        "longitude": 78.8242
-      },
-      "openingHoursSpecification": [
+      "@graph": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
+          "@type": "TravelAgency",
+          "@id": "https://new-roshan-tours-and-travels.vercel.app/#agency",
+          "name": "New Roshan Tours & Travels Umrah & Ziyarath India Pvt Ltd",
+          "alternateName": ["New Roshan Tours & Travels Kadapa", "New Roshan Travels Kadapa"],
+          "image": "https://new-roshan-tours-and-travels.vercel.app/assets/umrah-schedule.jpg",
+          "url": "https://new-roshan-tours-and-travels.vercel.app/",
+          "telephone": "+91-9059057239",
+          "priceRange": "₹₹",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "13/403-1, Rahmatullah Street, YV Street, Ganagapeta",
+            "addressLocality": "Kadapa",
+            "addressRegion": "Andhra Pradesh",
+            "postalCode": "516001",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 14.4673,
+            "longitude": 78.8242
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "09:00",
+              "closes": "20:00"
+            }
           ],
-          "opens": "09:30",
-          "closes": "19:30"
+          "sameAs": [
+            "https://www.instagram.com/newroshantoursandtravels/"
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "2"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://new-roshan-tours-and-travels.vercel.app/#website",
+          "url": "https://new-roshan-tours-and-travels.vercel.app/",
+          "name": "New Roshan Tours & Travels",
+          "publisher": {
+            "@id": "https://new-roshan-tours-and-travels.vercel.app/#agency"
+          },
+          "inLanguage": "en-IN"
         }
-      ],
-      "sameAs": [
-        "https://www.instagram.com/newroshantoursandtravels/"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "2"
-      }
+      ]
     }
     </script>
   </head>
