@@ -132,14 +132,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           <BrandLogo variant="header" />
 
           {/* Modern Desktop Navigation Links — Spanning Full Middle Extent */}
-          <div className="hidden lg:flex items-center justify-center flex-1 max-w-6xl mx-2 xl:mx-4 gap-0.5 xl:gap-1.5 2xl:gap-2">
+          <div className="hidden lg:flex items-center justify-center flex-1 max-w-6xl mx-1.5 xl:mx-4 gap-0.5 xl:gap-1.5 2xl:gap-2">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href;
+              // Responsive visibility for secondary anchor tools on tight desktop widths
+              const isSecondary = link.name === 'Fare Estimator';
+              const isTertiary = link.name === 'Photo Gallery';
+              const visibilityClass = isTertiary
+                ? 'hidden 2xl:inline-flex'
+                : isSecondary
+                ? 'hidden xl:inline-flex'
+                : 'inline-flex';
+
               return (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`text-[11px] xl:text-[12px] 2xl:text-[13px] font-semibold px-2.5 py-1.5 xl:px-3 xl:py-1.5 2xl:px-3.5 2xl:py-2 rounded-full transition-all tracking-wide whitespace-nowrap focus-ring ${
+                  className={`${visibilityClass} items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-semibold px-2 xl:px-2.5 2xl:px-3.5 py-1.5 2xl:py-2 rounded-full transition-all tracking-wide whitespace-nowrap focus-ring ${
                     isActive 
                       ? 'text-[#C8A45D] bg-white/10 font-bold border border-[#C8A45D]/30' 
                       : 'text-stone-200 hover:text-[#C8A45D] hover:bg-white/5'
@@ -152,21 +161,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </div>
 
           {/* Modern Right-Side Actions */}
-          <div className="hidden sm:flex items-center gap-2.5 xl:gap-3 shrink-0">
+          <div className="hidden sm:flex items-center gap-2 xl:gap-3 shrink-0">
             <a
               href={createWhatsAppUrl({ intent: 'general' })}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 xl:gap-2 bg-[#174C40] hover:bg-[#1f5c4f] text-white text-xs font-bold px-3.5 xl:px-4 py-2.5 rounded-full border border-[#C8A45D]/30 shadow-xs transition-all hover:scale-[1.02] active:scale-95 focus-ring"
+              className="inline-flex items-center gap-1.5 xl:gap-2 bg-[#174C40] hover:bg-[#1f5c4f] text-white text-xs font-bold px-3 xl:px-4 py-2.5 rounded-full border border-[#C8A45D]/30 shadow-xs transition-all hover:scale-[1.02] active:scale-95 focus-ring"
             >
               <MessageCircle className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#C8A45D]" />
-              <span className="whitespace-nowrap">WhatsApp Enquiry</span>
+              <span className="whitespace-nowrap hidden xl:inline">WhatsApp Enquiry</span>
+              <span className="whitespace-nowrap xl:hidden">WhatsApp</span>
             </a>
 
             <button
               type="button"
               onClick={() => onOpenBooking()}
-              className="inline-flex items-center gap-1.5 xl:gap-2 bg-gradient-to-r from-[#C8A45D] via-[#dfbe78] to-[#C8A45D] hover:from-[#dfbe78] hover:to-[#C8A45D] text-[#102D29] text-xs font-extrabold px-4 xl:px-5 py-2.5 rounded-full shadow-md shadow-[#C8A45D]/15 transition-all hover:scale-[1.02] active:scale-95 focus-ring"
+              className="inline-flex items-center gap-1.5 xl:gap-2 bg-gradient-to-r from-[#C8A45D] via-[#dfbe78] to-[#C8A45D] hover:from-[#dfbe78] hover:to-[#C8A45D] text-[#102D29] text-xs font-extrabold px-3.5 xl:px-5 py-2.5 rounded-full shadow-md shadow-[#C8A45D]/15 transition-all hover:scale-[1.02] active:scale-95 focus-ring"
             >
               <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#102D29]" />
               <span className="whitespace-nowrap">Book Umrah</span>

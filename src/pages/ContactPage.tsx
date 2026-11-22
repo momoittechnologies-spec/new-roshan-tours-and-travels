@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { AGENCY_DETAILS } from '../data/travelData';
 import { SEOHead } from '../components/SEOHead';
+import { BrandLogo } from '../components/BrandLogo';
 import { createWhatsAppUrl } from '../utils/whatsapp';
 
 export const ContactPage: React.FC = () => {
@@ -111,12 +112,8 @@ export const ContactPage: React.FC = () => {
               Centrally Located in Ganagapeta, Kadapa
             </div>
 
-            <div className="pt-1">
-              <img 
-                src="/branding/new-roshan-logo-official.png" 
-                alt="New Roshan Tours & Travels Official Brand Logo" 
-                className="h-14 sm:h-18 w-auto object-contain drop-shadow-md"
-              />
+            <div className="pt-2">
+              <BrandLogo variant="hero" />
             </div>
             
             <h1 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
