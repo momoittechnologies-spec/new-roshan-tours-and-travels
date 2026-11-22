@@ -162,12 +162,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </a>
 
           {/* Modern Desktop Navigation Links — Spanning Full Middle Extent */}
-          <div className="hidden xl:flex items-center justify-center flex-1 max-w-5xl mx-4 gap-1 2xl:gap-2">
+          <div className="hidden lg:flex items-center justify-center flex-1 max-w-6xl mx-2 xl:mx-4 gap-0.5 xl:gap-1.5 2xl:gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[12px] 2xl:text-[13px] font-semibold text-stone-200 hover:text-[#C8A45D] hover:bg-white/5 px-3 py-1.5 2xl:px-3.5 2xl:py-2 rounded-full transition-all tracking-wide whitespace-nowrap focus-ring"
+                className="text-[11px] xl:text-[12px] 2xl:text-[13px] font-semibold text-stone-200 hover:text-[#C8A45D] hover:bg-white/5 px-2.5 py-1.5 xl:px-3 xl:py-1.5 2xl:px-3.5 2xl:py-2 rounded-full transition-all tracking-wide whitespace-nowrap focus-ring"
               >
                 {link.name}
               </a>
@@ -175,33 +175,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </div>
 
           {/* Modern Right-Side Actions */}
-          <div className="hidden md:flex items-center gap-3 shrink-0">
+          <div className="hidden sm:flex items-center gap-2.5 xl:gap-3 shrink-0">
             <a
               href={createWhatsAppUrl({ intent: 'general' })}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#174C40] hover:bg-[#1f5c4f] text-white text-xs font-bold px-4 py-2.5 rounded-full border border-[#C8A45D]/30 shadow-xs transition-all hover:scale-[1.02] active:scale-95 focus-ring"
+              className="inline-flex items-center gap-1.5 xl:gap-2 bg-[#174C40] hover:bg-[#1f5c4f] text-white text-xs font-bold px-3.5 xl:px-4 py-2.5 rounded-full border border-[#C8A45D]/30 shadow-xs transition-all hover:scale-[1.02] active:scale-95 focus-ring"
             >
-              <MessageCircle className="w-4 h-4 text-[#C8A45D]" />
+              <MessageCircle className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#C8A45D]" />
               <span className="whitespace-nowrap">WhatsApp Enquiry</span>
             </a>
 
             <button
               type="button"
               onClick={() => onOpenBooking()}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C8A45D] via-[#dfbe78] to-[#C8A45D] hover:from-[#dfbe78] hover:to-[#C8A45D] text-[#102D29] text-xs font-extrabold px-5 py-2.5 rounded-full shadow-md shadow-[#C8A45D]/15 transition-all hover:scale-[1.02] active:scale-95 focus-ring"
+              className="inline-flex items-center gap-1.5 xl:gap-2 bg-gradient-to-r from-[#C8A45D] via-[#dfbe78] to-[#C8A45D] hover:from-[#dfbe78] hover:to-[#C8A45D] text-[#102D29] text-xs font-extrabold px-4 xl:px-5 py-2.5 rounded-full shadow-md shadow-[#C8A45D]/15 transition-all hover:scale-[1.02] active:scale-95 focus-ring"
             >
-              <Calendar className="w-4 h-4 text-[#102D29]" />
+              <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#102D29]" />
               <span className="whitespace-nowrap">Book Umrah</span>
             </button>
           </div>
 
           {/* Mobile Actions & Menu Toggle */}
-          <div className="flex items-center gap-2 xl:hidden shrink-0">
+          <div className="flex items-center gap-2 lg:hidden shrink-0">
             <button
               type="button"
               onClick={() => onOpenBooking()}
-              className="md:hidden bg-[#C8A45D] text-[#102D29] text-xs font-black px-3.5 py-1.5 rounded-full focus-ring"
+              className="sm:hidden bg-[#C8A45D] text-[#102D29] text-xs font-black px-3.5 py-1.5 rounded-full focus-ring"
             >
               Book
             </button>
@@ -220,7 +220,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden w-full bg-[#102D29]/98 border-t border-[#C8A45D]/25 px-5 pt-4 pb-7 space-y-2 backdrop-blur-2xl animate-in slide-in-from-top duration-200 shadow-2xl">
+          <div className="lg:hidden w-full bg-[#102D29]/98 border-t border-[#C8A45D]/25 px-5 pt-4 pb-7 space-y-2 backdrop-blur-2xl animate-in slide-in-from-top duration-200 shadow-2xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pb-3">
               {navLinks.map((link) => (
                 <a
