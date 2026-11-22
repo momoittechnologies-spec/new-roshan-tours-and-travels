@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#92400E" />
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065F46" />
+      <stop offset="100%" stop-color="#022C22" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#emeraldGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
+  <!-- Crescent Moon -->
+  <path d="M52 20 A 28 28 0 1 0 76 68 A 24 24 0 1 1 52 20 Z" fill="url(#goldGrad)"/>
+  <!-- Star / Sparkle -->
+  <polygon points="68,28 71,36 79,36 73,41 75,49 68,44 61,49 63,41 57,36 65,36" fill="#FDE68A" />
+  <!-- Letter NR -->
+  <text x="44" y="66" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" text-anchor="middle">NR</text>
+</svg>
