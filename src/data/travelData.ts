@@ -56,7 +56,7 @@ export const AGENCY_DETAILS = {
   developer: {
     name: "MOMO IT TECHNOLOGIES",
     tagline: "Empowering Local Businesses with World-Class Digital Solutions",
-    url: "https://github.com/momoittechnologies-spec"
+    url: "https://www.momoittechnologies.com/"
   }
 };
 

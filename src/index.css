@@ -106,7 +106,7 @@
 
 /* Subtle Hero Pattern */
 .bg-hero-overlay {
-  background: linear-gradient(180deg, rgba(16, 45, 41, 0.92) 0%, rgba(16, 45, 41, 0.85) 60%, rgba(16, 45, 41, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(16, 45, 41, 0.94) 0%, rgba(16, 45, 41, 0.86) 55%, rgba(16, 45, 41, 0.98) 100%);
 }
 
 /* Focus Indicator for Accessibility */
@@ -116,6 +116,33 @@
 .focus-ring:focus-visible {
   outline: 2px solid #C8A45D;
   outline-offset: 2px;
+}
+
+/* Professional Infinite Text Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    transform: none;
+  }
 }
 
 /* Custom Scrollbar */

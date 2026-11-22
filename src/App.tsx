@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { MarqueeBanner } from './components/MarqueeBanner';
 import { PackagesSection } from './components/PackagesSection';
 import { ScheduleSection } from './components/ScheduleSection';
 import { WhyChooseUs } from './components/WhyChooseUs';
@@ -52,6 +53,9 @@ export function App() {
           onOpenBooking={() => handleOpenBooking()} 
           onOpenLuckyDraw={handleOpenLuckyDraw} 
         />
+
+        {/* Professional Islamic Pilgrimage Text Marquee */}
+        <MarqueeBanner />
 
         {/* 3. Featured Umrah Packages */}
         <PackagesSection 

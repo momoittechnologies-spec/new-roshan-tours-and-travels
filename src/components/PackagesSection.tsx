@@ -188,6 +188,41 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackag
           })}
         </div>
 
+        {/* All Packages Inclusive Reassurance Strip */}
+        <div className="mt-12 bg-white rounded-2xl p-6 border border-stone-200/90 shadow-2xs">
+          <div className="text-center mb-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#102D29]">
+              Every New Roshan Package Includes:
+            </span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-center text-xs text-[#26332F]/80">
+            <div className="p-2.5 rounded-xl bg-[#F8F5ED] border border-stone-200/60">
+              <span className="font-bold text-[#174C40] block">Direct Flights</span>
+              <span className="text-[11px] text-stone-500">Saudia Airlines HYD-JED</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-[#F8F5ED] border border-stone-200/60">
+              <span className="font-bold text-[#174C40] block">Walking Distance</span>
+              <span className="text-[11px] text-stone-500">150m & 400m to Harams</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-[#F8F5ED] border border-stone-200/60">
+              <span className="font-bold text-[#174C40] block">Indian Catering</span>
+              <span className="text-[11px] text-stone-500">3 Buffets Daily + Tea</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-[#F8F5ED] border border-stone-200/60">
+              <span className="font-bold text-[#174C40] block">8-Piece Kit</span>
+              <span className="text-[11px] text-stone-500">Free Luggage & Ihram</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-[#F8F5ED] border border-stone-200/60">
+              <span className="font-bold text-[#174C40] block">Visa & Insurance</span>
+              <span className="text-[11px] text-stone-500">Complete e-Visa Handling</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-[#F8F5ED] border border-stone-200/60">
+              <span className="font-bold text-[#174C40] block">Muallim Guidance</span>
+              <span className="text-[11px] text-stone-500">Urdu & Telugu Guides</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
