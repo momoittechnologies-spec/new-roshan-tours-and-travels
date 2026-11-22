@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { X, Gift, Trophy, Percent, ShieldCheck, MessageCircle, CheckCircle } from 'lucide-react';
-import { AGENCY_DETAILS, LUCKY_DRAW_DATA } from '../data/travelData';
+import React, { useState, useEffect } from 'react';
+import { X, Gift, MessageCircle } from 'lucide-react';
+import { createWhatsAppUrl } from '../utils/whatsapp';
 
 interface LuckyDrawModalProps {
   isOpen: boolean;
@@ -12,6 +12,22 @@ export const LuckyDrawModal: React.FC<LuckyDrawModalProps> = ({ isOpen, onClose 
   const [phone, setPhone] = useState('');
   const [city, setCity] = useState('Kadapa');
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,62 +36,58 @@ export const LuckyDrawModal: React.FC<LuckyDrawModalProps> = ({ isOpen, onClose 
       alert("Please provide your name and WhatsApp number.");
       return;
     }
-    const message = `Assalamu Alaikum New Roshan Tours & Travels Kadapa!%0A%0A*LUCKY DRAW REGISTRATION (₹999)*%0A------------------------------%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*City:* ${encodeURIComponent(city)}%0A*Scheme:* Pay ₹999 for Umrah Lucky Draw.%0A%0APlease provide the payment UPI / QR code so I can complete payment and receive my official Lucky Draw entry receipt.`;
-    window.open(`https://wa.me/${AGENCY_DETAILS.whatsapp}?text=${message}`, '_blank');
+    const url = createWhatsAppUrl({
+      intent: 'luckydraw',
+      name,
+      city
+    });
+    window.open(url, '_blank');
     onClose();
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="luckydraw-modal-title"
+    >
       <div 
-        className="relative w-full max-w-lg bg-emerald-950 text-white rounded-3xl shadow-2xl border border-amber-500/40 overflow-hidden"
+        className="relative w-full max-w-lg bg-[#102D29] text-white rounded-2xl shadow-2xl border border-[#C8A45D]/40 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-6 pb-4 relative border-b border-emerald-900 bg-emerald-900/40">
+        <div className="p-6 pb-4 relative border-b border-stone-800 bg-[#174C40]/50">
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus-ring"
+            aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
           </button>
-          <div className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 bg-[#C8A45D]/20 text-[#C8A45D] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
             <Gift className="w-3.5 h-3.5" />
-            Limited Period Community Scheme
+            Community Scheme Notice
           </div>
-          <h3 className="text-xl sm:text-2xl font-bold font-serif-title">
-            Win a Free Umrah Trip for Only ₹999
+          <h3 id="luckydraw-modal-title" className="text-xl sm:text-2xl font-bold font-serif-title">
+            ₹999 Umrah Community Program
           </h3>
           <p className="text-xs text-stone-300 mt-1">
-            Kadapa & AP/Telangana Special Initiative
+            Kadapa Office Promotional Initiative • Terms & In-Office Verification Apply
           </p>
         </div>
 
-        {/* Prizes quick recap */}
+        {/* Content */}
         <div className="p-6 space-y-4">
-          <div className="grid grid-cols-3 gap-2 text-center text-xs">
-            <div className="bg-emerald-900/60 p-2 rounded-xl border border-amber-400/30">
-              <span className="text-[10px] text-amber-400 block font-bold">1st Prize</span>
-              <strong className="text-white text-xs block">100% Free</strong>
-            </div>
-            <div className="bg-emerald-900/60 p-2 rounded-xl border border-amber-400/30">
-              <span className="text-[10px] text-amber-400 block font-bold">2nd Prize</span>
-              <strong className="text-white text-xs block">50% Off</strong>
-            </div>
-            <div className="bg-emerald-900/60 p-2 rounded-xl border border-amber-400/30">
-              <span className="text-[10px] text-amber-400 block font-bold">3rd Prize</span>
-              <strong className="text-white text-xs block">25% Off</strong>
-            </div>
-          </div>
-
-          <div className="bg-amber-500/10 p-3 rounded-xl border border-amber-500/30 text-[11px] text-stone-300">
-            <strong className="text-amber-300 block mb-0.5">Zero-Risk Protection Guarantee:</strong>
-            If not selected, your ₹999 is 100% adjusted into any Umrah package within 6 months + an extra ₹2,000 discount (Total Benefit: ₹2,999)!
+          <div className="bg-[#174C40]/60 p-3 rounded-xl border border-[#C8A45D]/30 text-xs text-stone-300 leading-relaxed">
+            <strong className="text-[#C8A45D] block mb-0.5">100% Value Guarantee:</strong>
+            If not drawn, your ₹999 entry fee is fully adjusted into any Umrah package within 6 months, plus an additional ₹2,000 company discount (total ₹2,999 value). Official terms must be verified at our Kadapa office.
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-3">
             <div>
-              <label className="block text-[11px] font-bold text-stone-300 uppercase mb-1">
+              <label className="block text-xs font-bold text-stone-300 uppercase mb-1">
                 Full Name *
               </label>
               <input
@@ -84,12 +96,12 @@ export const LuckyDrawModal: React.FC<LuckyDrawModalProps> = ({ isOpen, onClose 
                 placeholder="e.g. Mohammed Farooq"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full bg-emerald-900/80 border border-emerald-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-stone-400 focus:outline-none focus:border-amber-400"
+                className="w-full bg-[#174C40]/70 border border-stone-600 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder-stone-400 focus-ring"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold text-stone-300 uppercase mb-1">
+              <label className="block text-xs font-bold text-stone-300 uppercase mb-1">
                 WhatsApp Phone Number *
               </label>
               <input
@@ -98,29 +110,29 @@ export const LuckyDrawModal: React.FC<LuckyDrawModalProps> = ({ isOpen, onClose 
                 placeholder="e.g. 9059057239"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full bg-emerald-900/80 border border-emerald-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-stone-400 focus:outline-none focus:border-amber-400"
+                className="w-full bg-[#174C40]/70 border border-stone-600 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder-stone-400 focus-ring"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold text-stone-300 uppercase mb-1">
-                City / District
+              <label className="block text-xs font-bold text-stone-300 uppercase mb-1">
+                City / Town
               </label>
               <input
                 type="text"
                 placeholder="e.g. Kadapa"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="w-full bg-emerald-900/80 border border-emerald-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-stone-400 focus:outline-none focus:border-amber-400"
+                className="w-full bg-[#174C40]/70 border border-stone-600 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder-stone-400 focus-ring"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full mt-2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-emerald-950 font-bold py-3.5 px-4 rounded-xl shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2 text-sm"
+              className="w-full mt-2 bg-[#C8A45D] hover:bg-[#b8954f] text-[#102D29] font-bold py-3.5 px-4 rounded-xl shadow-md transition-transform active:scale-95 flex items-center justify-center gap-2 text-xs uppercase tracking-wider focus-ring"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-950" />
-              <span>Register via WhatsApp (Pay ₹999)</span>
+              <MessageCircle className="w-4 h-4 text-[#102D29]" />
+              <span>Inquire Scheme via WhatsApp</span>
             </button>
           </form>
         </div>

@@ -1,25 +1,30 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { PackagesSection } from './components/PackagesSection';
 import { ScheduleSection } from './components/ScheduleSection';
+import { WhyChooseUs } from './components/WhyChooseUs';
 import { HotelsSection } from './components/HotelsSection';
-import { LuckyDrawSection } from './components/LuckyDrawSection';
-import { PilgrimKitSection } from './components/PilgrimKitSection';
-import { ServicesSection } from './components/ServicesSection';
 import { FareCalculator } from './components/FareCalculator';
+import { JourneyGuideSection } from './components/JourneyGuideSection';
+import { ServicesSection } from './components/ServicesSection';
+import { PilgrimKitSection } from './components/PilgrimKitSection';
 import { GallerySection } from './components/GallerySection';
 import { AboutSection } from './components/AboutSection';
 import { ReviewsSection } from './components/ReviewsSection';
+import { LuckyDrawSection } from './components/LuckyDrawSection';
 import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { LuckyDrawModal } from './components/LuckyDrawModal';
+import { PolicyModal, type PolicyType } from './components/PolicyModal';
 import { FloatingActions } from './components/FloatingActions';
 
 export function App() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [luckyDrawModalOpen, setLuckyDrawModalOpen] = useState(false);
+  const [activePolicy, setActivePolicy] = useState<PolicyType>(null);
   const [selectedBatchNote, setSelectedBatchNote] = useState('');
 
   const handleOpenBooking = (prefillNote?: string) => {
@@ -34,61 +39,67 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans selection:bg-amber-500 selection:text-emerald-950">
-      {/* Sticky Header */}
+    <div className="min-h-screen bg-[#F8F5ED] text-[#26332F] flex flex-col font-sans selection:bg-[#C8A45D] selection:text-[#102D29]">
+      {/* 1. Header & Navigation */}
       <Navbar 
         onOpenBooking={() => handleOpenBooking()} 
         onOpenLuckyDraw={handleOpenLuckyDraw} 
       />
 
-      {/* Main Content Sections */}
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* 2. Premium Hero with Trust Indicators */}
         <Hero 
           onOpenBooking={() => handleOpenBooking()} 
           onOpenLuckyDraw={handleOpenLuckyDraw} 
         />
 
-        {/* Departure Schedules & Batches */}
+        {/* 3. Featured Umrah Packages */}
+        <PackagesSection 
+          onSelectPackage={(pkgName) => handleOpenBooking(`Inquiry for ${pkgName}`)} 
+        />
+
+        {/* 4. Upcoming Group Departures (Saudia Airlines Direct) */}
         <ScheduleSection 
           onSelectSchedule={(batchInfo) => handleOpenBooking(batchInfo)} 
         />
 
-        {/* 5-Star Accommodations Near Haram */}
+        {/* 5. Why Choose New Roshan (Authentic Kadapa Strengths) */}
+        <WhyChooseUs />
+
+        {/* 6. Hotels & Accommodation (Proximity to Harams) */}
         <HotelsSection />
 
-        {/* ₹999 Lucky Draw Scheme */}
-        <LuckyDrawSection 
-          onOpenModal={handleOpenLuckyDraw} 
-        />
-
-        {/* Complimentary 8-Piece Pilgrim Kit */}
-        <PilgrimKitSection />
-
-        {/* Services & Guided Ziyarat */}
-        <ServicesSection />
-
-        {/* Interactive Umrah Fare Estimator */}
+        {/* 7. Umrah Fare Estimator */}
         <FareCalculator />
 
-        {/* Authentic Photo & Milestone Gallery */}
+        {/* 8. Pilgrimage Journey Guide (7-Step Timeline) */}
+        <JourneyGuideSection />
+
+        {/* 9. Full Services & Complimentary Pilgrim Kit */}
+        <ServicesSection />
+        <PilgrimKitSection />
+
+        {/* 10. Authentic Photo Proof Gallery */}
         <GallerySection />
 
-        {/* Story, Founding & Chief Guest Blessings */}
+        {/* 11. About & Leadership (Grand Opening 3rd July 2026) */}
         <AboutSection />
 
-        {/* Google 5.0 Star Reviews */}
+        {/* 12. Genuine Testimonials (5.0 Google Rating) */}
         <ReviewsSection />
 
-        {/* Accordion FAQs */}
+        {/* 13. Secondary Promotional Initiative (₹999 Lucky Draw Notice) */}
+        <LuckyDrawSection />
+
+        {/* 14. Frequently Asked Questions */}
         <FAQSection />
 
-        {/* Office Contact, Maps & Form */}
+        {/* 15. Contact & Office Location */}
         <ContactSection />
       </main>
 
-      {/* Footer with MOMO IT TECHNOLOGIES Agency Credits */}
-      <Footer />
+      {/* 16. Footer with Policy Links & MOMO IT TECHNOLOGIES Credits */}
+      <Footer onOpenPolicy={(type) => setActivePolicy(type)} />
 
       {/* Interactive Modals */}
       <BookingModal 
@@ -102,7 +113,12 @@ export function App() {
         onClose={() => setLuckyDrawModalOpen(false)}
       />
 
-      {/* Floating Call & WhatsApp Triggers */}
+      <PolicyModal 
+        policyType={activePolicy}
+        onClose={() => setActivePolicy(null)}
+      />
+
+      {/* Single Unobtrusive Floating Action */}
       <FloatingActions />
     </div>
   );

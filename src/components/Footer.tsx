@@ -3,59 +3,60 @@ import {
   Heart, 
   MapPin, 
   Phone, 
-  Sparkles, 
-  ShieldCheck, 
   ArrowUp,
-  MessageCircle,
-  ExternalLink 
+  MessageCircle
 } from 'lucide-react';
-import { InstagramIcon } from './InstagramIcon';
 import { AGENCY_DETAILS } from '../data/travelData';
+import { InstagramIcon } from './InstagramIcon';
+import type { PolicyType } from './PolicyModal';
 
-export const Footer: React.FC = () => {
+const CURRENT_YEAR = new Date().getFullYear();
+
+interface FooterProps {
+  onOpenPolicy: (type: PolicyType) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenPolicy }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-emerald-950 text-stone-300 border-t border-amber-500/20 pt-16 pb-8 relative overflow-hidden">
-      {/* Subtle Background Glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-
+    <footer className="bg-[#102D29] text-stone-300 border-t border-[#C8A45D]/20 pt-16 pb-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-emerald-900">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-stone-800">
           
-          {/* Brand & Motto (Col 5) */}
+          {/* Brand & Motto */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-600 to-amber-700 p-0.5 shadow-md">
-                <div className="w-full h-full bg-emerald-950 rounded-[10px] flex items-center justify-center font-serif font-black text-amber-400 text-lg">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C8A45D] to-[#927335] p-0.5 shadow-xs">
+                <div className="w-full h-full bg-[#102D29] rounded-[10px] flex items-center justify-center font-serif font-black text-[#C8A45D] text-lg">
                   NR
                 </div>
               </div>
               <div>
-                <span className="font-extrabold text-white text-lg tracking-wide uppercase font-serif-title block">
+                <span className="font-extrabold text-white text-base sm:text-lg tracking-wide uppercase font-serif-title block">
                   NEW ROSHAN TOURS & TRAVELS
                 </span>
-                <span className="text-[11px] text-amber-300 tracking-wider uppercase font-semibold">
+                <span className="text-[10px] text-[#C8A45D] tracking-wider uppercase font-semibold">
                   UMRAH & ZIYARATH INDIA PVT. LTD.
                 </span>
               </div>
             </div>
 
-            <p className="font-arabic text-amber-200/90 text-lg font-bold">
+            <p className="font-arabic text-[#C8A45D] text-base font-bold">
               {AGENCY_DETAILS.mottoArabic}
             </p>
-            <p className="text-xs sm:text-sm text-stone-400 max-w-sm leading-relaxed">
-              {AGENCY_DETAILS.mottoEnglish}. Serving pilgrims across Kadapa, Rayalaseema, Andhra Pradesh, and Telangana with trusted 5-star packages, Saudia direct flights, and sincere khidmat.
+            <p className="text-xs text-stone-300 max-w-sm leading-relaxed">
+              {AGENCY_DETAILS.mottoEnglish}. Serving pilgrims across Kadapa, Rayalaseema, and Telangana with trusted 5-star packages, Saudia direct flights, and sincere religious guidance.
             </p>
 
-            <div className="pt-2 flex items-center gap-3">
+            <div className="pt-1 flex items-center gap-3">
               <a
                 href={AGENCY_DETAILS.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-emerald-900/80 hover:bg-emerald-800 text-pink-400 flex items-center justify-center transition-colors border border-emerald-800"
+                className="w-8 h-8 rounded-lg bg-[#174C40] hover:bg-[#1f5c4f] text-pink-400 flex items-center justify-center transition-colors focus-ring"
                 title="Instagram"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -64,14 +65,14 @@ export const Footer: React.FC = () => {
                 href={`https://wa.me/${AGENCY_DETAILS.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-emerald-900/80 hover:bg-emerald-800 text-emerald-400 flex items-center justify-center transition-colors border border-emerald-800"
+                className="w-8 h-8 rounded-lg bg-[#174C40] hover:bg-[#1f5c4f] text-emerald-400 flex items-center justify-center transition-colors focus-ring"
                 title="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
               </a>
               <a
                 href={`tel:${AGENCY_DETAILS.phones[0].raw}`}
-                className="w-9 h-9 rounded-lg bg-emerald-900/80 hover:bg-emerald-800 text-amber-400 flex items-center justify-center transition-colors border border-emerald-800"
+                className="w-8 h-8 rounded-lg bg-[#174C40] hover:bg-[#1f5c4f] text-[#C8A45D] flex items-center justify-center transition-colors focus-ring"
                 title="Call Kadapa Office"
               >
                 <Phone className="w-4 h-4" />
@@ -79,36 +80,72 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links (Col 3) */}
+          {/* Quick Navigation */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-white text-sm font-bold uppercase tracking-wider font-serif-title">
+            <h4 className="text-white text-xs font-bold uppercase tracking-wider font-serif-title">
               Quick Navigation
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm">
-              <li><a href="#home" className="hover:text-amber-300 transition-colors">Home</a></li>
-              <li><a href="#schedules" className="hover:text-amber-300 transition-colors">Umrah Batches & Schedules</a></li>
-              <li><a href="#hotels" className="hover:text-amber-300 transition-colors">5-Star Hotels (Makkah & Madina)</a></li>
-              <li><a href="#lucky-draw" className="hover:text-amber-300 transition-colors text-amber-400 font-semibold">₹999 Lucky Draw Offer</a></li>
-              <li><a href="#kit" className="hover:text-amber-300 transition-colors">Free 8-Item Pilgrim Kit</a></li>
-              <li><a href="#calculator" className="hover:text-amber-300 transition-colors">Umrah Fare Calculator</a></li>
-              <li><a href="#gallery" className="hover:text-amber-300 transition-colors">Photo & Proof Gallery</a></li>
-              <li><a href="#contact" className="hover:text-amber-300 transition-colors">Kadapa Office Contact</a></li>
+            <ul className="space-y-1.5 text-xs text-stone-300">
+              <li><a href="#home" className="hover:text-[#C8A45D] transition-colors">Home</a></li>
+              <li><a href="#packages" className="hover:text-[#C8A45D] transition-colors">Featured Packages</a></li>
+              <li><a href="#schedules" className="hover:text-[#C8A45D] transition-colors">Upcoming Departures</a></li>
+              <li><a href="#why-us" className="hover:text-[#C8A45D] transition-colors">Why Choose Us</a></li>
+              <li><a href="#hotels" className="hover:text-[#C8A45D] transition-colors">5-Star Hotels (Makkah & Madina)</a></li>
+              <li><a href="#calculator" className="hover:text-[#C8A45D] transition-colors">Fare Calculator</a></li>
+              <li><a href="#journey-guide" className="hover:text-[#C8A45D] transition-colors">Journey Steps</a></li>
+              <li><a href="#gallery" className="hover:text-[#C8A45D] transition-colors">Photo Proof Gallery</a></li>
+              <li><a href="#contact" className="hover:text-[#C8A45D] transition-colors">Kadapa Head Office</a></li>
             </ul>
           </div>
 
-          {/* Office Address & Grand Inauguration (Col 4) */}
-          <div className="lg:col-span-4 space-y-3 text-xs sm:text-sm">
-            <h4 className="text-white text-sm font-bold uppercase tracking-wider font-serif-title">
-              Kadapa Headquarters
-            </h4>
-            <div className="flex items-start gap-2.5 text-stone-300">
-              <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-              <span>{AGENCY_DETAILS.address}</span>
+          {/* Legal Policies & Office Address */}
+          <div className="lg:col-span-4 space-y-4 text-xs text-stone-300">
+            <div>
+              <h4 className="text-white text-xs font-bold uppercase tracking-wider font-serif-title mb-2">
+                Kadapa Head Office
+              </h4>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#C8A45D] shrink-0 mt-0.5" />
+                <span>{AGENCY_DETAILS.address}</span>
+              </div>
+              <div className="mt-2 text-stone-400">
+                Inaugurated 3rd July 2026 by {AGENCY_DETAILS.chiefGuest}
+              </div>
             </div>
-            <div className="pt-2 text-stone-400 space-y-1">
-              <div><strong>Founded:</strong> 3rd July 2026 (Bad Namaz-e-Juma)</div>
-              <div><strong>Inaugurated by:</strong> {AGENCY_DETAILS.chiefGuest}</div>
-              <div><strong>Google Rating:</strong> 5.0 ⭐ (Ganagapeta, Kadapa)</div>
+
+            <div>
+              <h4 className="text-white text-xs font-bold uppercase tracking-wider font-serif-title mb-2">
+                Legal & Consumer Policies
+              </h4>
+              <ul className="space-y-1.5 text-xs">
+                <li>
+                  <button 
+                    type="button"
+                    onClick={() => onOpenPolicy('privacy')}
+                    className="text-stone-300 hover:text-[#C8A45D] transition-colors focus-ring"
+                  >
+                    Privacy Policy
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    type="button"
+                    onClick={() => onOpenPolicy('terms')}
+                    className="text-stone-300 hover:text-[#C8A45D] transition-colors focus-ring"
+                  >
+                    Terms and Conditions
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    type="button"
+                    onClick={() => onOpenPolicy('cancellation')}
+                    className="text-stone-300 hover:text-[#C8A45D] transition-colors focus-ring"
+                  >
+                    Cancellation & Refund Policy
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -117,22 +154,28 @@ export const Footer: React.FC = () => {
         {/* Agency Attribution & Copyright Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-400">
           <div>
-            © {new Date().getFullYear()} {AGENCY_DETAILS.legalName}. All rights reserved.
+            © {CURRENT_YEAR} {AGENCY_DETAILS.legalName}. All rights reserved.
           </div>
 
           {/* Agency Signature */}
-          <div className="flex items-center gap-2 bg-emerald-900/60 px-4 py-2 rounded-xl border border-amber-500/20 text-stone-300">
+          <div className="flex items-center gap-1.5 bg-[#174C40]/60 px-3.5 py-1.5 rounded-lg border border-[#C8A45D]/20 text-stone-300">
             <span>Crafted with</span>
-            <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse" />
+            <Heart className="w-3.5 h-3.5 text-red-400 fill-current" />
             <span>by</span>
-            <strong className="text-amber-300 font-bold tracking-wide">
+            <a 
+              href={AGENCY_DETAILS.developer.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C8A45D] font-bold tracking-wide hover:underline focus-ring"
+            >
               MOMO IT TECHNOLOGIES
-            </strong>
+            </a>
           </div>
 
           <button
+            type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-stone-400 hover:text-amber-400 transition-colors"
+            className="flex items-center gap-1.5 text-stone-400 hover:text-[#C8A45D] transition-colors focus-ring"
           >
             <span>Back to top</span>
             <ArrowUp className="w-4 h-4" />

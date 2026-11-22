@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, Phone, ArrowUp } from 'lucide-react';
-import { AGENCY_DETAILS } from '../data/travelData';
+import { MessageCircle, ArrowUp } from 'lucide-react';
+import { createWhatsAppUrl } from '../utils/whatsapp';
 
 export const FloatingActions: React.FC = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -23,41 +23,27 @@ export const FloatingActions: React.FC = () => {
       {/* Back to top button */}
       {showBackToTop && (
         <button
+          type="button"
           onClick={scrollToTop}
-          className="pointer-events-auto w-10 h-10 rounded-full bg-emerald-950/80 hover:bg-emerald-900 text-stone-300 flex items-center justify-center shadow-lg backdrop-blur-md transition-all border border-emerald-700/60 active:scale-95"
+          className="pointer-events-auto w-10 h-10 rounded-full bg-[#102D29]/90 hover:bg-[#102D29] text-stone-200 flex items-center justify-center shadow-md backdrop-blur-xs transition-all border border-[#C8A45D]/40 active:scale-95 focus-ring"
           title="Back to Top"
+          aria-label="Back to Top"
         >
-          <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="w-4 h-4 text-[#C8A45D]" />
         </button>
       )}
 
-      {/* Floating Call Button (Mobile Only) */}
-      <a
-        href={`tel:${AGENCY_DETAILS.phones[0].raw}`}
-        className="pointer-events-auto sm:hidden w-12 h-12 rounded-full bg-amber-500 text-emerald-950 flex items-center justify-center shadow-xl border-2 border-white active:scale-90 transition-transform"
-        title="Call Kadapa Office"
-      >
-        <Phone className="w-6 h-6 fill-current" />
-      </a>
-
-      {/* Floating WhatsApp Action Button */}
+      {/* Single Unobtrusive Floating WhatsApp CTA */}
       <div className="pointer-events-auto relative group">
-        {/* Tooltip on hover */}
-        <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 hidden md:block bg-emerald-950 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-xl whitespace-nowrap border border-emerald-700/60 opacity-0 group-hover:opacity-100 transition-opacity">
-          Chat with Kadapa Office 💬
-        </div>
-
-        {/* Pulsing ring */}
-        <span className="absolute -inset-1 rounded-full bg-emerald-500 opacity-75 animate-ping pointer-events-none" />
-
         <a
-          href={`https://wa.me/${AGENCY_DETAILS.whatsapp}?text=${encodeURIComponent("Salam Alaikum New Roshan Tours & Travels, I am visiting your website and would like to ask about Umrah packages from Kadapa.")}`}
+          href={createWhatsAppUrl({ intent: 'general' })}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-2xl transition-transform hover:scale-110 active:scale-95 border-2 border-white/80"
-          title="WhatsApp Support"
+          className="flex items-center justify-center w-13 h-13 rounded-full bg-[#174C40] hover:bg-[#102D29] text-white shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-[#C8A45D]/60 focus-ring"
+          title="Chat on WhatsApp"
+          aria-label="Chat with New Roshan Tours & Travels on WhatsApp"
         >
-          <MessageCircle className="w-8 h-8 fill-current" />
+          <MessageCircle className="w-7 h-7 text-[#C8A45D]" />
         </a>
       </div>
 
