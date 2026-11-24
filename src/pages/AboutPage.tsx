@@ -31,7 +31,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
     "mainEntity": {
       "@type": "TravelAgency",
       "name": "NEW ROSHAN TOURS & TRAVELS UMRAH & ZIYARATH INDIA PVT. LTD.",
-      "telephone": "+91 90590 57239",
+      "telephone": ["+91 90590 57239", "+91 99595 78900"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "13/403-1, Rahmatullah Street, YV Street, Ganagapeta",

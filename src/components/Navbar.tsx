@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </div>
 
           {/* Right: Phone Hotlines & Instagram */}
-          <div className="flex items-center gap-3 text-[11px] sm:text-xs shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs shrink-0">
             <a 
               href={`tel:${AGENCY_DETAILS.phones[0].raw}`}
               className="flex items-center gap-1.5 text-stone-200 hover:text-[#C8A45D] font-bold transition-colors focus-ring"
@@ -98,6 +98,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             >
               <Phone className="w-3.5 h-3.5 text-[#C8A45D]" />
               <span className="tracking-wide">{AGENCY_DETAILS.phones[0].display}</span>
+            </a>
+
+            <span className="text-stone-500 hidden md:inline">/</span>
+
+            <a 
+              href={`tel:${AGENCY_DETAILS.phones[1].raw}`}
+              className="hidden md:flex items-center gap-1 text-stone-200 hover:text-[#C8A45D] font-bold transition-colors focus-ring"
+              title="Call Secondary Helpline"
+            >
+              <span className="tracking-wide">{AGENCY_DETAILS.phones[1].display}</span>
             </a>
 
             <span className="text-stone-600 hidden sm:inline">|</span>

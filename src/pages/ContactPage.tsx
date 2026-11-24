@@ -55,7 +55,7 @@ export const ContactPage: React.FC = () => {
     "mainEntity": {
       "@type": "TravelAgency",
       "name": "NEW ROSHAN TOURS & TRAVELS UMRAH & ZIYARATH INDIA PVT. LTD.",
-      "telephone": "+91-9059057239",
+      "telephone": ["+91-9059057239", "+91-9959578900"],
       "email": "info@newroshantoursandtravels.com",
       "address": {
         "@type": "PostalAddress",
@@ -163,21 +163,18 @@ export const ContactPage: React.FC = () => {
               <h3 className="font-serif-title text-base font-bold text-[#102D29]">
                 Direct Phone Hotlines
               </h3>
-              <div className="space-y-1.5 text-xs">
+              <div className="space-y-2 text-xs">
                 <div>
                   <a href={`tel:${AGENCY_DETAILS.phones[0].raw}`} className="font-bold text-[#102D29] hover:text-[#174C40] block">
-                    {AGENCY_DETAILS.phones[0].display} (Primary & WhatsApp)
+                    {AGENCY_DETAILS.phones[0].display}
                   </a>
+                  <span className="text-stone-500 text-[11px]">Primary Helpline &amp; WhatsApp Support</span>
                 </div>
-                <div>
+                <div className="pt-1 border-t border-stone-200">
                   <a href={`tel:${AGENCY_DETAILS.phones[1].raw}`} className="font-bold text-[#102D29] hover:text-[#174C40] block">
-                    {AGENCY_DETAILS.phones[1].display} (Office Reservations)
+                    {AGENCY_DETAILS.phones[1].display}
                   </a>
-                </div>
-                <div>
-                  <a href={`tel:${AGENCY_DETAILS.phones[2].raw}`} className="font-bold text-[#102D29] hover:text-[#174C40] block">
-                    {AGENCY_DETAILS.phones[2].display} (Helpdesk & Coordination)
-                  </a>
+                  <span className="text-stone-500 text-[11px]">Office Reservations &amp; Customer Inquiries</span>
                 </div>
               </div>
             </div>

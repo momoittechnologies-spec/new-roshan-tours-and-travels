@@ -44,8 +44,7 @@ export const AGENCY_DETAILS = {
   serviceAreas: "Kadapa, Rayalaseema, Andhra Pradesh & Telangana",
   phones: [
     { display: "+91 90590 57239", raw: "919059057239" },
-    { display: "+91 99595 78900", raw: "919959578900" },
-    { display: "+91 98493 19776", raw: "919849319776" }
+    { display: "+91 99595 78900", raw: "919959578900" }
   ],
   whatsapp: "919059057239",
   instagramUrl: "https://www.instagram.com/newroshantoursandtravels/",
