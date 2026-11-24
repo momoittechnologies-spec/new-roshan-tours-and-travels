@@ -65,7 +65,7 @@ export function createWhatsAppUrl(params: WhatsAppInquiryParams = {}): string {
 
     case 'hotel':
       lines.push("*HOTEL & ACCOMMODATION INQUIRY*");
-      lines.push("• Inquiring regarding walking distance hotels in Makkah (Dlyar Alnada) and Madinah (Al Marjan International).");
+      lines.push("• Inquiring regarding walking distance hotels in Makkah (Diyar Alnada Hotel) and Madinah (Al Marjan International).");
       lines.push("Please confirm room availability and buffet dining arrangements.");
       break;
 

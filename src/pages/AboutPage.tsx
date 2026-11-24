@@ -227,7 +227,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
                 Genuine Walking Proximity
               </h3>
               <p className="text-xs text-stone-600 leading-relaxed">
-                In Madina, Al Marjan International is situated approx. 150 meters (less than 2 minutes walk) from Masjid an-Nabawi gates. In Makkah, Dlyar Alnada is approx. 400 meters flat walk from Masjid al-Haram.
+                In Madina, Al Marjan International is situated approx. 150 meters (less than 2 minutes walk) from Masjid an-Nabawi gates. In Makkah, Diyar Alnada Hotel is approx. 400 meters flat walk from Masjid al-Haram.
               </p>
             </div>
 
@@ -317,7 +317,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
                   400m
                 </span>
                 <span className="text-xs font-bold text-white block">Makkah Hotel Distance</span>
-                <span className="text-[11px] text-stone-400 block">Dlyar Alnada to Masjid al-Haram</span>
+                <span className="text-[11px] text-stone-400 block">Diyar Alnada to Masjid al-Haram</span>
               </div>
 
               <div className="bg-[#174C40]/50 p-6 rounded-2xl border border-[#C8A45D]/20 text-center space-y-1">

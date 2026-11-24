@@ -35,11 +35,13 @@ export const AGENCY_DETAILS = {
   legalName: "NEW ROSHAN TOURS & TRAVELS UMRAH & ZIYARATH INDIA PVT. LTD.",
   mottoArabic: "لَبَّيْكَ ٱللَّٰهُمَّ لَبَّيْكَ",
   mottoUrdu: "ہماری ذمہ داری، آپ کا اعتماد",
-  mottoEnglish: "Hamari Zimmedari, Aapka Aitmaad",
+  mottoEnglish: "Your Journey Our Priority",
+  mottoSecondary: "Hamari Zimmedari, Aapka Aitmaad",
   prayerDuah: "Allah Aapki Umrah Ko Maqbool Farmaye (Aameen)",
   establishedDate: "3rd July 2026",
   chiefGuest: "Hazrath Sufi Shah Mohammed Abdus Sattar Al-Maroof Rowshen Ali Shah Qadri-O-Shuttari",
   address: "13/403-1, Rahmatullah Street, YV Street, Ganagapeta, Kadapa, Andhra Pradesh - 516001",
+  addressFlyer: "Rahmatullah Street, Office No: 13/403-1, Kadapa Dist., Andhra Pradesh & Telangana",
   landmark: "Near YV Street & Ganagapeta",
   serviceAreas: "Kadapa, Rayalaseema, Andhra Pradesh & Telangana",
   phones: [
@@ -70,7 +72,7 @@ export const FEATURED_PACKAGES: PackageTier[] = [
     duration: "14 - 15 Days",
     departureAirport: "Hyderabad (HYD) Direct",
     airline: "Saudia Airlines (Direct)",
-    makkahHotel: "Dlyar Alnada Hotel",
+    makkahHotel: "Diyar Alnada Hotel",
     makkahDistance: "Approx. 400m from Masjid al-Haram",
     madinaHotel: "Al Marjan International",
     madinaDistance: "Approx. 150m from Masjid an-Nabawi courtyard",
@@ -159,8 +161,8 @@ export const UMRAH_SCHEDULES: ScheduleItem[] = [
     airline: "Saudia Airlines",
     price: "₹1,15,000",
     status: "Limited",
-    seatsLeftText: "02 Seats Remaining",
-    makkahHotel: "Dlyar Alnada Hotel (Approx. 400m)",
+    seatsLeftText: "02 Seats Left",
+    makkahHotel: "Diyar Alnada Hotel (Approx. 400m)",
     madinaHotel: "Al Marjan International (Approx. 150m)"
   },
   {
@@ -171,8 +173,8 @@ export const UMRAH_SCHEDULES: ScheduleItem[] = [
     airline: "Saudia Airlines",
     price: "₹1,15,000",
     status: "Fast Filling",
-    seatsLeftText: "10 Seats Remaining",
-    makkahHotel: "Dlyar Alnada Hotel (Approx. 400m)",
+    seatsLeftText: "10 Seats Left",
+    makkahHotel: "Diyar Alnada Hotel (Approx. 400m)",
     madinaHotel: "Al Marjan International (Approx. 150m)"
   },
   {
@@ -183,8 +185,8 @@ export const UMRAH_SCHEDULES: ScheduleItem[] = [
     airline: "Saudia Airlines",
     price: "₹1,15,000",
     status: "Open",
-    seatsLeftText: "Seats Open",
-    makkahHotel: "Dlyar Alnada Hotel (Approx. 400m)",
+    seatsLeftText: "Open",
+    makkahHotel: "Diyar Alnada Hotel (Approx. 400m)",
     madinaHotel: "Al Marjan International (Approx. 150m)"
   },
   {
@@ -195,8 +197,8 @@ export const UMRAH_SCHEDULES: ScheduleItem[] = [
     airline: "Saudia Airlines",
     price: "₹1,15,000",
     status: "Open",
-    seatsLeftText: "Seats Open",
-    makkahHotel: "Dlyar Alnada Hotel (Approx. 400m)",
+    seatsLeftText: "Open",
+    makkahHotel: "Diyar Alnada Hotel (Approx. 400m)",
     madinaHotel: "Al Marjan International (Approx. 150m)"
   },
   {
@@ -208,7 +210,7 @@ export const UMRAH_SCHEDULES: ScheduleItem[] = [
     price: "₹1,15,000",
     status: "Open",
     seatsLeftText: "Advance Booking Open",
-    makkahHotel: "Dlyar Alnada Hotel (Approx. 400m)",
+    makkahHotel: "Diyar Alnada Hotel (Approx. 400m)",
     madinaHotel: "Al Marjan International (Approx. 150m)"
   },
   {
@@ -228,13 +230,14 @@ export const UMRAH_SCHEDULES: ScheduleItem[] = [
 export const SCHEDULE_METADATA = {
   lastUpdated: "November 2026",
   source: "Verified New Roshan Tours & Travels Kadapa Office Schedule",
-  policyNote: "Once Umrah Visa and non-refundable Saudia Airlines group tickets are issued, the total package is non-refundable per airline & Ministry guidelines."
+  policyNote: "Note: Once Visa issued, Total Package is Non-Refundable"
 };
 
 export const HOTEL_DETAILS = {
   makkah: {
-    name: "Dlyar Alnada Hotel",
+    name: "Diyar Alnada Hotel",
     distance: "Approx. 400 Meters from Masjid al-Haram",
+    distanceMtrs: "400 Mtrs",
     city: "Makkah Al-Mukarramah",
     rating: "5 Star Category",
     features: [
@@ -248,6 +251,7 @@ export const HOTEL_DETAILS = {
   madina: {
     name: "Al Marjan International Hotel",
     distance: "Approx. 150 Meters from Prophet's Mosque",
+    distanceMtrs: "150 Mtrs",
     city: "Madinah Al-Munawwarah",
     rating: "5 Star Category",
     features: [
@@ -366,7 +370,7 @@ export const FAQS = [
   },
   {
     q: "How close are the hotels in Makkah and Madinah to the Haram?",
-    a: "In Makkah, we accommodate you at Dlyar Alnada Hotel (approx. 400 meters / 5-7 minutes flat walk). In Madina, we provide Al Marjan International Hotel, situated approx. 150 meters (less than 2 minutes walk) directly to the Masjid an-Nabawi courtyard gates."
+    a: "In Makkah, we accommodate you at Diyar Alnada Hotel (approx. 400 meters / 5-7 minutes flat walk). In Madina, we provide Al Marjan International Hotel, situated approx. 150 meters (less than 2 minutes walk) directly to the Masjid an-Nabawi courtyard gates."
   },
   {
     q: "How does the ₹999 Lucky Draw Scheme work?",

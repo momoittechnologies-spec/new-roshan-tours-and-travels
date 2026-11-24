@@ -16,7 +16,7 @@ Designed from the perspective of **MOMO IT TECHNOLOGIES**, this platform provide
 ## ✨ Key Features & Architecture
 - **Direct Saudia Airlines Batches:** Real-time group schedule tracker (HYD-JED-HYD) starting at ₹1,15,000 all-inclusive.
 - **5-Star Accommodations Near Haram:**
-  - **Makkah:** Dlyar Alnada Hotel (~400m from Haram)
+  - **Makkah:** Diyar Alnada Hotel (~400m from Haram)
   - **Madina:** Al Marjan International Hotel (~150m from Masjid an-Nabawi)
 - **Special ₹999 Lucky Draw Engine:** 1st Prize 100% Free Umrah, 2nd Prize 50% Off, 3rd Prize 25% Off + 100% money protection with ₹2,999 guaranteed benefits.
 - **Complimentary 8-Piece Pilgrim Kit:** Tasbih, pure cotton Ihram, umbrella, scarf, 15kg trolley bag, passport bag, bottle bag, and Zamzam.

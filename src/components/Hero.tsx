@@ -159,7 +159,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
                 <div className="bg-[#102D29]/70 rounded-xl p-3 border border-stone-700/80 flex items-start justify-between">
                   <div>
-                    <span className="text-xs font-bold text-white block">Makkah: Dlyar Alnada Hotel</span>
+                    <span className="text-xs font-bold text-white block">Makkah: Diyar Alnada Hotel</span>
                     <span className="text-[11px] text-stone-300">Flat Route to Courtyard • 5 Mins Walk</span>
                   </div>
                   <span className="bg-[#174C40] text-[#C8A45D] text-[10px] font-bold px-2 py-0.5 rounded border border-[#C8A45D]/20">
